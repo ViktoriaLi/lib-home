@@ -19,7 +19,7 @@ $(NAME):
 	ar rc $(NAME) *.o
 
 clean:
-	rm -f *.o
+	rm -f *.o *.gch
 
 fclean: clean
 	rm -f $(NAME)

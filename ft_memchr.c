@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlikhotk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/04 13:03:08 by vlikhotk          #+#    #+#             */
-/*   Updated: 2017/11/04 13:03:29 by vlikhotk         ###   ########.fr       */
+/*   Created: 2017/11/04 15:35:23 by vlikhotk          #+#    #+#             */
+/*   Updated: 2017/11/04 15:51:24 by vlikhotk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_toupper(int c)
+#include <string.h>
+
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	if (c >= 97 && c <= 122)
-		return (c - 32);
+	size_t			i;
+	unsigned char	*tmp;
+
+	i = 0;
+	tmp = (unsigned char *)s;
+	while (i < n && tmp[i] != 0 && tmp[i] != c)
+		i++;
+	if (tmp[i] == c)
+		return (unsigned char *)(&tmp[i]);
 	else
-		return (c);
+		return (NULL);
 }

@@ -14,9 +14,9 @@
 
 int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	int i;
-	int j;
-	int k;
+	int		i;
+	int		j;
+	size_t	k;
 
 	i = 0;
 	j = 0;

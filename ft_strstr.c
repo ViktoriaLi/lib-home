@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vlikhotk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/04 13:00:37 by vlikhotk          #+#    #+#             */
+/*   Updated: 2017/11/04 13:01:05 by vlikhotk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string.h>
 
-char	*ft_strstr(const char *haystack, const char *needle)
+char	*ft_strstr(const char *big, const char *little)
 {
 	int i;
 	int j;
@@ -8,22 +20,22 @@ char	*ft_strstr(const char *haystack, const char *needle)
 
 	i = 0;
 	j = 0;
-	if (needle[0] == 0)
-		return (char*)(haystack);
-	while (haystack[i] != 0)
+	if (little[i] == 0 || &little[i] == NULL)
+		return (char *)(big);
+	while (big[i] != 0)
 	{
-		if (haystack[i] == needle[j])
+		if (big[i] == little[j])
 		{
 			res = i;
-			while (haystack[i] == needle[j])
+			while (big[i] == little[j] && big[i] != 0 && little[j] != 0)
 			{
 				i++;
 				j++;
 			}
-			if (needle[j] == 0)
-				return (char*)(&haystack[res]);
-		}	
+			if (little[j] == 0)
+				return (char *)(&big[res]);
+		}
 		i++;
 	}
-	return NULL;
+	return (NULL);
 }

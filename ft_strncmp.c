@@ -1,9 +1,21 @@
- #include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vlikhotk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/04 12:50:36 by vlikhotk          #+#    #+#             */
+/*   Updated: 2017/11/04 12:50:48 by vlikhotk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
- int	ft_strncmp(const char *s1, const char *s2, size_t n)
- {
- 	int i;
-	int j;
+#include <string.h>
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	i;
+	int		j;
 
 	i = 0;
 	j = 0;
@@ -17,4 +29,4 @@
 			return (-1);
 	}
 	return (0);
- }
+}

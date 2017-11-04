@@ -11,12 +11,13 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <string.h>
 
 char	*ft_strdup(const char *s1)
 {
 	int			i;
 	int			j;
-	char	*dest;
+	char		*dest;
 
 	i = 0;
 	j = 0;
@@ -24,7 +25,9 @@ char	*ft_strdup(const char *s1)
 	{
 		i++;
 	}
-	dest = malloc(sizeof(char) * i);
+	dest = malloc(sizeof(char) * (i + 1));
+	if (dest == NULL)
+		return (NULL);
 	while (s1[j] != 0)
 	{
 		dest[j] = (char)s1[j];

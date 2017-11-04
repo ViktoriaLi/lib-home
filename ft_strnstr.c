@@ -1,30 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vlikhotk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/04 12:54:13 by vlikhotk          #+#    #+#             */
+/*   Updated: 2017/11/04 12:54:23 by vlikhotk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string.h>
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int i;
-	int j;
-	int res;
+	size_t	i;
+	size_t	j;
+	int		res;
 
 	i = 0;
 	j = 0;
-	if (needle[0] == 0)
-		return (char*)(haystack);
-	while (haystack[i] != 0)
+	if (little[i] == 0 || &little[i] == NULL)
+		return (char *)(big);
+	while (big[i] != 0 && i < len)
 	{
-		if (haystack[i] == needle[j])
+		if (big[i] == little[j])
 		{
 			res = i;
-			n = j + n;
-			while (haystack[i] == needle[j] && j < n)
+			len = j + len;
+			while (big[i] == little[j] && j < len && big[i] != 0 && little[j] != 0)
 			{
 				i++;
 				j++;
 			}
-			if ((j == n - 1) || needle[j] == 0)
-				return (char*)(&haystack[res]);
-		}	
+			if ((j == len - 1) || little[j] == 0)
+				return (char*)(&big[res]);
+		}
 		i++;
 	}
-	return NULL;
+	return (NULL);
 }

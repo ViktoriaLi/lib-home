@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vlikhotk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/04 12:59:36 by vlikhotk          #+#    #+#             */
+/*   Updated: 2017/11/04 12:59:51 by vlikhotk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string.h>
 
 char	*ft_strrchr(const char *s, int c)
@@ -21,5 +33,5 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	if (res != 0)
 		return (char*)(&s[res]);
-	return NULL;
+	return (NULL);
 }

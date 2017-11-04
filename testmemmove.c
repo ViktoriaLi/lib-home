@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlikhotk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/04 13:03:08 by vlikhotk          #+#    #+#             */
-/*   Updated: 2017/11/04 13:03:29 by vlikhotk         ###   ########.fr       */
+/*   Created: 2017/11/04 15:23:42 by vlikhotk          #+#    #+#             */
+/*   Updated: 2017/11/04 15:33:32 by vlikhotk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_toupper(int c)
+#include <string.h>
+
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	if (c >= 97 && c <= 122)
-		return (c - 32);
-	else
-		return (c);
+	size_t			i;
+	unsigned char	*dst1;
+	unsigned char	*src1;
+
+	i = 0;
+	dst1 = (unsigned char *)dst;
+	src1 = (unsigned char *)src;
+	while (i < len)
+	{
+		dst1[i] = src1[i];
+		i++;
+	}
+	return (dst1);
 }

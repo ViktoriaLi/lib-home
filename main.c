@@ -488,9 +488,9 @@ int main(void)
     printf("%s%s\n", "Original string is ", src32);
     printf("%s%s", "Substring from index 4 and 5 symbols is: ", ft_strsub(src32, 4, 5));*/
 
-    printf("%s", "\n\nFT_STRJOIN FUNCTION\n");
-    char const *src33 = "Hello, ";
+    /*printf("%s", "\n\nFT_STRJOIN FUNCTION\n");
+    char const *src33 = "Hello,";
     char const *src34 = "World!";
-    printf("%s%s\n", "Should be Hello, World! string: ", ft_strjoin(src33, src34));
+    printf("%s%s\n", "Should be Hello, World! string: ", ft_strjoin(src33, src34));*/
     
 }

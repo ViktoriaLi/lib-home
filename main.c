@@ -57,6 +57,18 @@ void test_striteri(unsigned int j, char *s1)
     }
 }
 
+char test_strmap(char c1)
+{
+    c1 += 1;
+    return (c1);
+}
+
+char test_strmapi(unsigned int i, char c2)
+{
+    c2 += i;
+    return (c2);
+}
+
 int main(void)
 {
 	/*printf("%s", "MEMSET FUNCTION\n");
@@ -401,6 +413,21 @@ int main(void)
     printf("%s%d\n", "Is alpha 7 ", ft_tolower('7'));
     printf("%s%d\n", "Is alpha Z ", ft_tolower('Z'));*/
 
+
+    //printf("%s", "\nADDITIONAL FUNCTIONS\n\n");
+
+    /*printf("%s", "FT_PUTCHAR ouput\n");
+    printf("\n%s", "Print a symbol: ");
+    ft_putchar('a');*/
+
+    /*printf("%s", "\n\nFT_PUTSTR ouput\n");
+    printf("\n%s", "Print Hello");
+    ft_putstr("Hello");*/
+
+    /*printf("%s", "\n\nFT_PUTENDL ouput\n");
+    printf("\n%s", "Print Hello");
+    ft_putendl("Hello");*/
+
     /*printf("%s", "\n\nFT_STRITER ouput\n");
     printf("%s\n", "Call ft_striter with Hello string and putchar function: ");
     ft_striter("Hello", &test_ft_putstr);*/
@@ -421,9 +448,15 @@ int main(void)
     ft_strclr(src29);
     printf("%s%d\n", "Clear Hello string result: ", (int)src29[0]);*/
 
-    
+    /*printf("\n\n%s", "FT_STRMAP ouput\n");
+    char *src31 = "Hello";
+    printf("%s%s\n", "Original string is ", src31);
+    printf("%s%s", "Returned string is ", ft_strmap(src31, &test_strmap));*/
 
-
+    /*printf("\n\n%s", "FT_STRMAPI ouput\n");
+    char *src32 = "Hello";
+    printf("%s%s\n", "Original string is ", src32);
+    printf("%s%s", "Returned string is ", ft_strmapi(src32, &test_strmapi));*/
 
 
 }

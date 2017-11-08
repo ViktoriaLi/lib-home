@@ -12,6 +12,6 @@
 
 void	ft_strdel(char **as)
 {
-	free(ap);
+	free(&ap);
 	ap = NULL:
 }

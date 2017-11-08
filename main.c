@@ -32,6 +32,7 @@ char    *ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char    *ft_strsub(char const *s, unsigned int start, size_t len);
 char    *ft_strjoin(char const *s1, char const *s2);
 char    *ft_strtrim(char const *s);
+char    **ft_strsplit(char const *s, char c);
 
 void test_ft_putstr(char *s)
 {
@@ -493,10 +494,14 @@ int main(void)
     char const *src34 = "World!";
     printf("%s%s\n", "Should be Hello, World! string: ", ft_strjoin(src33, src34));*/
     
-    printf("%s", "\n\nFT_STRTRIM FUNCTION\n");
+    /*printf("%s", "\n\nFT_STRTRIM FUNCTION\n");
     char const *src35 = "Hello";
     char const *src36 = " \n\tHello\t\t\n     ";
     printf("%s%s\n", "Result of Hello string without whitespaces: ", ft_strtrim(src35));
-    printf("%s%s\n", "Result of Hello string with whitespaces at the start and and: ", ft_strtrim(src36));
+    printf("%s%s\n", "Result of Hello string with whitespaces at the start and and: ", ft_strtrim(src36));*/
 
+    printf("%s", "\n\nFT_STRSPLIT FUNCTION\n");
+    char const *src37 = "*hello*fellow***students*";
+    printf("%s%s\n", "The first word of new array is: " ft_strsplit(src37, '*'));
+    
 }

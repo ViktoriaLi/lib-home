@@ -20,14 +20,24 @@ char	**ft_strsplit(char const *s, char c)
 	char **dest;
 
 	i = 0;
-	len = 0;
+	chars = 0;
 	words = 0;
-	s = (char *)c;
+	while (s[i] != c)
+		i++;
 	while (s[i] != 0)
 	{
+		while (s[i] != c)
+		{
+			i++;
+			chars++;
+		}
 		if (s[i] == c)
-			len++;
-		i++;
+		{	
+			words++;
+			while (s[i] == c)
+				i++;
+		}
 	}
-
+	dest = malloc(sizeof(char) * (chars + words +c1));
+	
 }

@@ -14,14 +14,14 @@
 
 char	*ft_strtrim(char const *s)
 {
-	int i;
-	int j;
-	int len;
-	char *dest;
+	int		i;
+	int		j;
+	int		len;
+	char	*dest;
 	
 	i = 0;
+	j = 0;
 	len = 0;
-	s = (chr *)s;
 	while (s[i] != 0)
 	{
 		if (s[i] != ' ' && s[i] != '\n' && s[i] != '\t')
@@ -34,7 +34,7 @@ char	*ft_strtrim(char const *s)
 	{
 		if (s[i] != ' ' && s[i] != '\n' && s[i] != '\t')
 			{
-				dest[j] = s[i];
+				dest[j] = (char)s[i];
 				j++;
 			}
 			i++;

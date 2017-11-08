@@ -493,4 +493,10 @@ int main(void)
     char const *src34 = "World!";
     printf("%s%s\n", "Should be Hello, World! string: ", ft_strjoin(src33, src34));*/
     
+    printf("%s", "\n\nFT_STRTRIM FUNCTION\n");
+    char const *src35 = "Hello";
+    char const *src36 = " \n\tHello\t\t\n     ";
+    printf("%s%s\n", "Result of Hello string without whitespaces: ", ft_strtrim(src35));
+    printf("%s%s\n", "Result of Hello string with whitespaces at the start and and: ", ft_strtrim(src36));
+
 }

@@ -14,21 +14,22 @@
 
 char	*ft_strmap(char const *s, char (*f)(char))
 {
-	int				i;
-	int				len;
-	unsigned char	*dest;
+	int		i;
+	int		len;
+	char	*dest;
 
 	i = 0;
 	while (s[i] != 0)
 		i++;
-	len = i + 1;
+	//len = i + 1;
+	len = i;
 	i = 0;
-	dest = malloc(sizeof(unsigned char) * len);
+	dest = malloc(sizeof(char) * len);
 	while (i < len)
 	{
 		dest[i] = f(s[i]);
 		i++;
 	}
-	dest[i] = 0;
+	//dest[i] = 0;
 	return (dest);
 }

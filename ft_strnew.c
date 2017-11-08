@@ -15,7 +15,7 @@
 
 char	*ft_strnew(size_t size)
 {
-	size_t			i;
+	size_t	i;
 	char	*dest;
 
 	i = 0;

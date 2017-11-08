@@ -413,7 +413,6 @@ int main(void)
     printf("%s%d\n", "Is alpha 7 ", ft_tolower('7'));
     printf("%s%d\n", "Is alpha Z ", ft_tolower('Z'));*/
 
-
     //printf("%s", "\nADDITIONAL FUNCTIONS\n\n");
 
     /*printf("%s", "FT_PUTCHAR ouput\n");
@@ -458,5 +457,40 @@ int main(void)
     printf("%s%s\n", "Original string is ", src32);
     printf("%s%s", "Returned string is ", ft_strmapi(src32, &test_strmapi));*/
 
+    /*printf("%s", "\n\nFT_PUTNBR output\n");
+    printf("%s\n", "Ouput of 1 is ");
+    ft_putnbr(1);
+    printf("%s\n", "Ouput of 0 is ");
+    ft_putnbr(0);
+    printf("%s\n", "Output of 12345 is ");
+    ft_putnbr(12345);
+    printf("%s\n", "Output of -12345 is ");
+    ft_putnbr(-12345);
+    printf("%s\n", "Output of -2147483648 is ");
+    ft_putnbr(-2147483648);
+    printf("%s\n", "Output of 2147483647 is ");
+    ft_putnbr(2147483647);*/
 
+    /*printf("%s", "\nFT_STREQU FUNCTION\n");
+    printf("%s%d\n", "If the same empty strings result is ", ft_strequ("", ""));
+    printf("%s%d\n", "If the same empty strings result is ", ft_strequ("hello", "hello"));
+    printf("%s%d\n", "Different length ", ft_strequ("h", "h "));
+    printf("%s%d\n\n", "Different symbols ", ft_strequ("hello", "hellc"));*/
+    
+    /*printf("%s", "FT_STRNEQU FUNCTION\n");
+    printf("%s%d\n", "If the same empty strings result is ", ft_strnequ("", "", 2));
+    printf("%s%d\n", "If the same strings result is ", ft_strnequ("hello", "hello", 3));
+    printf("%s%d\n", "Different length ", ft_strnequ("h", "h ", 3));
+    printf("%s%d\n\n", "Different symbols ", ft_strnequ("hello", "hellc", 6));*/
+
+    /*printf("%s", "\n\nFT_STRSUB FUNCTION\n");
+    char const *src32 = "someHellosome";
+    printf("%s%s\n", "Original string is ", src32);
+    printf("%s%s", "Substring from index 4 and 5 symbols is: ", ft_strsub(src32, 4, 5));*/
+
+    printf("%s", "\n\nFT_STRJOIN FUNCTION\n");
+    char const *src33 = "Hello, ";
+    char const *src34 = "World!";
+    printf("%s%s\n", "Should be Hello, World! string: ", ft_strjoin(src33, src34));
+    
 }

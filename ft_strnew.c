@@ -15,11 +15,11 @@
 
 char	*ft_strnew(size_t size)
 {
-	size_t			i;
-	unsigned char	*dest;
+	size_t	i;
+	char	*dest;
 
 	i = 0;
-	dest = malloc(sizeof(unsigned char) * size);
+	dest = malloc(sizeof(char) * size);
 	if (dest == NULL)
 		return (NULL);
 	while (i < size)

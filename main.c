@@ -14,9 +14,48 @@
 #include "libft.h"
 #include <ctype.h>
 
-void ft_putchar(char c);
-void test_ft_putstr(char *s);
-void ft_putnbr(int n);
+void    ft_putchar(char c);
+void    ft_putstr(char const *s);
+void    ft_putnbr(int n);
+void    ft_putendl(char const *s);
+void    ft_striter(char *s, void (*f)(char *));
+void    ft_strclr(char *s);
+int     ft_strequ(char const *s1, char const *s2);
+int     ft_strnequ(char const *s1, char const *s2, size_t n);
+void    *ft_memalloc(size_t size);
+void    ft_memdel(void **ap);
+char    *ft_strnew(size_t size);
+void    ft_strdel(char **as);
+void    ft_striteri(char *s, void (*f)(unsigned int, char *));
+char    *ft_strmap(char const *s, char (*f)(char));
+char    *ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char    *ft_strsub(char const *s, unsigned int start, size_t len);
+char    *ft_strjoin(char const *s1, char const *s2);
+char    *ft_strtrim(char const *s);
+
+void test_ft_putstr(char *s)
+{
+    int i;
+
+    i = 0;
+    while (s[i] != '\0')
+    {
+        write(1, &(*(s + i)), 1);
+        i++;
+    }
+}
+
+void test_striteri(unsigned int j, char *s1)
+{
+    int i;
+
+    i = 0;
+    while (i < j)
+    {
+        write(1, &(*(s1 + i)), 1);
+        i++;
+    }
+}
 
 int main(void)
 {
@@ -258,7 +297,7 @@ int main(void)
     printf("%s%d\n", "If first string has bigger byte result is ", ft_strncmp("hello123", "aello456", 3));
     printf("%s%d\n", "If first string has less byte result is ", ft_strncmp("aello123", "hello456", 2));*/
 
-	printf("%s", "ATOI FUNCTION\nORIGINAL ATOI output\n");
+	/*printf("%s", "ATOI FUNCTION\nORIGINAL ATOI output\n");
     printf("%s%d\n", "If string with literals result is ", atoi("dfdf5"));
     printf("%s%d\n", "If string with gaps rewult is ", atoi("   456"));
     printf("%s%d\n", "If string with + and gaps result is ", atoi("+   456df  "));
@@ -287,7 +326,7 @@ int main(void)
     printf("%s%d\n", "If string with extreme negative number result is ", ft_atoi("-2147483648"));
     printf("%s%d\n", "If string with extreme positive number result is ", ft_atoi("+2147483647"));
     printf("%s%d\n", "If string with more then extreme negative number result is ", ft_atoi("-21474836481686"));
-    printf("%s%d\n", "If string with more then extreme positive number result is ", ft_atoi("+21474836471234"));
+    printf("%s%d\n", "If string with more then extreme positive number result is ", ft_atoi("+21474836471234"));*/
 
     /*printf("%s", "ISALPHA FUNCTION\nORIGINAL ISALPHA output\n");
     printf("%s%d\n", "Is alpha a ", isalpha('a'));
@@ -361,4 +400,30 @@ int main(void)
     printf("%s%d\n", "Is alpha A ", ft_tolower('A'));
     printf("%s%d\n", "Is alpha 7 ", ft_tolower('7'));
     printf("%s%d\n", "Is alpha Z ", ft_tolower('Z'));*/
+
+    /*printf("%s", "\n\nFT_STRITER ouput\n");
+    printf("%s\n", "Call ft_striter with Hello string and putchar function: ");
+    ft_striter("Hello", &test_ft_putstr);*/
+
+    /*printf("%s", "\n\nFT_STRITERI ouput\n");
+    printf("%s\n", "Call ft_striteri with Hello string and putchar function: ");
+    ft_striteri("Hello", &test_striteri);*/
+
+    /*printf("%s", "\n\nFT_MEMALLOC ouput\n");       
+    printf("%s%d", "The memory allocated is initialized to 0: ", (int)ft_memalloc(3));*/
+
+    /*printf("%s", "\n\nFT_STRNEW ouput\n");
+    printf("%s%d", "The string allocated and initialized to 0: ", (int)ft_strnew(3));*/
+
+    /*printf("%s", "FT_STRCLR ouput\n");
+    char *src29 = "Hello";
+    printf("%s%s\n", "Original string is ", src29);
+    ft_strclr(src29);
+    printf("%s%d\n", "Clear Hello string result: ", (int)src29[0]);*/
+
+    
+
+
+
+
 }

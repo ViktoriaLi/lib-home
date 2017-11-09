@@ -13,59 +13,24 @@
 #include <stdlib.h>
 #include <string.h>
 
-/*static int		words_calc(char const *s, char c)
+static char	**mainsplit(char const *s, char **dest, char c)
 {
 	int i;
-	int words;
-
-	i = 0;
-	words = 0;
-	while (s[i] != 0)
-	{ 
-		if ((i == 0 || s[i - 1] == c) && s[i] != c) 
-			words++; 
-		i++;
-	}
-	return (words);
-}*/
-
-char	**ft_strsplit(char const *s, char c)
-{
-	int i;
-	int j;
 	int k;
-	int chars;
+	int j;
 	int start;
-	int words;
-	char **dest;
 
 	i = 0;
-	j = 0;
 	k = 0;
-	chars = 0;
-	start = 0;
-	words = 0;
-	while (s[i] != 0)
-	{ 
-		if ((i == 0 || s[i - 1] == c) && s[i] != c) 
-			words++; 
-		i++;
-	}
-	dest = (char **)malloc(sizeof(char *) * (words + 1));
-	if (dest == NULL)
-		return (NULL);
-	i = 0;	
+	j = 0;
 	while (s[i] != 0)
 	{
 		if ((i == 0 || s[i - 1] == c) && s[i] != c)
 		{
 			start = i;
 			while (s[i] != c)
-			{
-				chars++;
 				i++;
-			}
-			dest[j] = (char *)malloc(sizeof(char) * (chars + 1));
+			dest[j] = (char *)malloc(sizeof(char) * (i - start));
 			if (dest[j] == NULL)
 				return (NULL);
 			while (s[start] != c)
@@ -75,7 +40,6 @@ char	**ft_strsplit(char const *s, char c)
 				k++;
 			}
 			dest[j][k] = 0;
-			chars = 0;
 			k = 0;
 			j++;
 		}
@@ -85,3 +49,22 @@ char	**ft_strsplit(char const *s, char c)
 	return (dest);
 }
 
+char		**ft_strsplit(char const *s, char c)
+{
+	int		i;
+	int		words;
+	char	**dest;
+
+	i = 0;
+	words = 0;
+	while (s[i] != 0)
+	{
+		if ((i == 0 || s[i - 1] == c) && s[i] != c)
+			words++;
+		i++;
+	}
+	dest = (char **)malloc(sizeof(char *) * (words + 1));
+	if (dest == NULL)
+		return (NULL);
+	return (mainsplit(s, dest, c));
+}

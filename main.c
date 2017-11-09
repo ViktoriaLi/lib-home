@@ -459,7 +459,7 @@ int main(void)
     printf("%s%s\n", "Original string is ", src32);
     printf("%s%s", "Returned string is ", ft_strmapi(src32, &test_strmapi));*/
 
-    /*printf("%s", "\n\nFT_PUTNBR output\n");
+    printf("%s", "\n\nFT_PUTNBR output\n");
     printf("%s\n", "Ouput of 1 is ");
     ft_putnbr(1);
     printf("%s\n", "Ouput of 0 is ");
@@ -468,7 +468,7 @@ int main(void)
     ft_putnbr(12345);
     printf("%s\n", "Output of -12345 is ");
     ft_putnbr(-12345);
-    printf("%s\n", "Output of -2147483648 is ");
+    /*printf("%s\n", "Output of -2147483648 is ");
     ft_putnbr(-2147483648);
     printf("%s\n", "Output of 2147483647 is ");
     ft_putnbr(2147483647);*/
@@ -511,13 +511,13 @@ int main(void)
 
     /*printf("%s", "\n\nFT_STRDEL FUNCTION\n");
     char *src38;
-    src38 = malloc(sizeof(unsigned char) * 10);
+    src38 = malloc(sizeof(char) * 10);
     src38 = "Hello";
     printf("%s%s", "Original string is ", src38);
     ft_strdel(&src38);
-    printf("%s%s", "String after free calling is ", src38);*/
+    printf("%s%d", "String after free calling is ", (int)src38);*/
 
-    printf("%s", "\n\nFT_STRSPLIT FUNCTION\n");
+    /*printf("%s", "\n\nFT_STRSPLIT FUNCTION\n");
     int i_spl = 0;
     char const *src39 = "*hello*fellow***students*";
     printf("%s%s\n", "Original string is: ", src39);
@@ -526,7 +526,7 @@ int main(void)
     {
         printf("%s%d%s\n", "Element of aray with index ", i_spl, dest39[i_spl]);
         i_spl++;
-    }
+    }*/
     
     /*printf("%s", "\n\nFT_ITOA FUNCTION\n");
     printf("%s%d\n", "Original number is ", 0);

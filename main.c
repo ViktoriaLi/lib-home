@@ -522,7 +522,7 @@ int main(void)
     char const *src39 = "*hello*fellow***students*";
     printf("%s%s\n", "Original string is: ", src39);
     char **dest39 = ft_strsplit(src39, '*');
-    while (&dest39[i_spl] != NULL)
+    while (dest39[i_spl] != NULL)
     {
         printf("%s%d%s\n", "Element of aray with index ", i_spl, dest39[i_spl]);
         i_spl++;

@@ -529,10 +529,19 @@ int main(void)
     }*/
     
     printf("%s", "\n\nFT_ITOA FUNCTION\n");
+    printf("%s%d\n", "Original number is ", 0);
+    printf("%s%s\n", "Result of itoa is ", ft_itoa(0));
     printf("%s%d\n", "Original number is ", 5);
     printf("%s%s\n", "Result of itoa is ", ft_itoa(5));
     printf("%s%d\n", "Original number is ", 123);
     printf("%s%s\n", "Result of itoa is ", ft_itoa(123));
     printf("%s%d\n", "Original number is ", 356146876);
     printf("%s%s\n", "Result of itoa is ", ft_itoa(356146876));
+    printf("%s%d\n", "Original number is ", -5);
+    printf("%s%s\n", "Result of itoa is ", ft_itoa(-5));
+    printf("%s%d\n", "Original number is ", -123);
+    printf("%s%s\n", "Result of itoa is ", ft_itoa(-123));
+    printf("%s%d\n", "Original number is ", -356146876);
+    printf("%s%s\n", "Result of itoa is ", ft_itoa(-356146876));
+
 }

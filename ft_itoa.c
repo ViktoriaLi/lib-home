@@ -13,20 +13,41 @@
 #include <string.h>
 #include <stdlib.h>
 
-char	*ft_itoa(int n)
+static char		*ft_negative_itoa(int n)
 {
 	int		d;
-	int 	len;
-	char	sign;
+	int		len;
 	char	*dest;
 
-	d = n;
-	len = 1;
+	len = 2;
+	d = -1 * n;
 	while (d > 9)
 	{
 		d = d / 10;
 		len++;
 	}
+	d = -1 * n;
+	dest = (char *)malloc(sizeof(char) * (len + 1));
+	dest[len--] = 0;
+	while (len)
+	{
+		dest[len] = d % 10 + '0';
+		d = d / 10;
+		len--;
+	}
+	dest[len] = '-';
+	return (dest);
+}
+
+char			*ft_itoa(int n)
+{
+	int		d;
+	int		len;
+	char	*dest;
+
+	if (n < 0)
+		return (ft_negative_itoa(n));
+	len = 1;
 	d = n;
 	dest = (char *)malloc(sizeof(char) * (len + 1));
 	dest[len--] = 0;
@@ -38,4 +59,3 @@ char	*ft_itoa(int n)
 	}
 	return (dest);
 }
-

@@ -33,6 +33,7 @@ char    *ft_strsub(char const *s, unsigned int start, size_t len);
 char    *ft_strjoin(char const *s1, char const *s2);
 char    *ft_strtrim(char const *s);
 char    **ft_strsplit(char const *s, char c);
+char    *ft_itoa(int n);
 
 void test_ft_putstr(char *s)
 {
@@ -500,8 +501,38 @@ int main(void)
     printf("%s%s\n", "Result of Hello string without whitespaces: ", ft_strtrim(src35));
     printf("%s%s\n", "Result of Hello string with whitespaces at the start and and: ", ft_strtrim(src36));*/
 
-    printf("%s", "\n\nFT_STRSPLIT FUNCTION\n");
-    char const *src37 = "*hello*fellow***students*";
-    printf("%s%s\n", "The first word of new array is: " ft_strsplit(src37, '*'));
+    /*printf("%s", "\n\nFT_MEMDEL FUNCTION\n");
+    char *src37;
+    src37 = malloc(sizeof(char) * 10);
+    src37 = "Hello";
+    printf("%s%s", "Original string is ", src37);
+    ft_memdel((void **)&src37);
+    printf("%s%s", "String after free calling is ", src37);*/
+
+    /*printf("%s", "\n\nFT_STRDEL FUNCTION\n");
+    char *src38;
+    src38 = malloc(sizeof(unsigned char) * 10);
+    src38 = "Hello";
+    printf("%s%s", "Original string is ", src38);
+    ft_strdel(&src38);
+    printf("%s%s", "String after free calling is ", src38);*/
+
+    /*printf("%s", "\n\nFT_STRSPLIT FUNCTION\n");
+    int i_spl = 0;
+    char const *src39 = "*hello*fellow***students*";
+    printf("%s%s\n", "Original string is: ", src39);
+    char **dest39 = ft_strsplit(src39, '*');
+    while (&dest39[i_spl] != NULL)
+    {
+        printf("%s%d%s\n", "Element of aray with index ", i_spl, dest39[i_spl]);
+        i_spl++;
+    }*/
     
+    printf("%s", "\n\nFT_ITOA FUNCTION\n");
+    printf("%s%d\n", "Original number is ", 5);
+    printf("%s%s\n", "Result of itoa is ", ft_itoa(5));
+    printf("%s%d\n", "Original number is ", 123);
+    printf("%s%s\n", "Result of itoa is ", ft_itoa(123));
+    printf("%s%d\n", "Original number is ", 356146876);
+    printf("%s%s\n", "Result of itoa is ", ft_itoa(356146876));
 }

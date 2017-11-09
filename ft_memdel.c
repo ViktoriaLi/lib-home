@@ -11,9 +11,13 @@
 /* ************************************************************************** */
 
 #include <string.h>
+#include <stdlib.h>
 
 void	ft_memdel(void **ap)
 {
+	char *tmp;
+
+	tmp = (char *)*ap;
 	free(ap);
-	ap = NULL:
+	*ap = NULL;
 }

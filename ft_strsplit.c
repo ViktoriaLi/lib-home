@@ -11,33 +11,59 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <string.h>
 
 char	**ft_strsplit(char const *s, char c)
 {
 	int i;
+	int j;
+	int k;
 	int chars;
 	int words;
+	int start;
 	char **dest;
 
 	i = 0;
+	j = 0;
+	k = 0;
 	chars = 0;
 	words = 0;
-	while (s[i] != c)
-		i++;
+	start = 0;
 	while (s[i] != 0)
-	{
-		while (s[i] != c)
-		{
-			i++;
-			chars++;
-		}
-		if (s[i] == c)
-		{	
-			words++;
-			while (s[i] == c)
-				i++;
-		}
+	{ 
+		if ((i == 0 || s[i - 1] == c) && s[i] != c) 
+			words++; 
+		i++;
 	}
-	dest = malloc(sizeof(char) * (chars + words +c1));
-	
+	dest = (char **)malloc(sizeof(char *) * (words + 1));
+	if (dest == NULL)
+		return (NULL);	
+	i = 0;
+	while (j < words + 1)
+	{
+		while (s[i] != 0)
+		{
+			if ((i == 0 || s[i - 1] == c) && s[i] != c)
+			{	
+				start = s[i];
+				while (s[i] != c)
+				{
+					chars++;
+					i++;
+				}
+				dest[j] = (char *)malloc(sizeof(char) * (chars + 1));
+				while (s[start] != c)
+				{
+					dest[j][k] = s[start];
+					start++;
+					k++;
+				}
+			}
+			i++;
+		}
+		j++;
+	}
+	dest[j] = NULL;
+	return (dest);
 }
+

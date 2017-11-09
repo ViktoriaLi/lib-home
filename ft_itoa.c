@@ -28,6 +28,8 @@ static char		*ft_negative_itoa(int n)
 	}
 	d = -1 * n;
 	dest = (char *)malloc(sizeof(char) * (len + 1));
+	if (dest == NULL)
+		return (NULL);
 	dest[len--] = 0;
 	while (len)
 	{
@@ -50,6 +52,8 @@ char			*ft_itoa(int n)
 	len = 1;
 	d = n;
 	dest = (char *)malloc(sizeof(char) * (len + 1));
+	if (dest == NULL)
+		return (NULL);
 	dest[len--] = 0;
 	while (len >= 0)
 	{

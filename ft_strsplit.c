@@ -13,13 +13,28 @@
 #include <stdlib.h>
 #include <string.h>
 
+/*static int		words_calc(char const *s, char c)
+{
+	int i;
+	int words;
+
+	i = 0;
+	words = 0;
+	while (s[i] != 0)
+	{ 
+		if ((i == 0 || s[i - 1] == c) && s[i] != c) 
+			words++; 
+		i++;
+	}
+	return (words);
+}*/
+
 char	**ft_strsplit(char const *s, char c)
 {
 	int i;
 	int j;
 	int k;
 	int chars;
-	int words;
 	int start;
 	char **dest;
 
@@ -27,8 +42,8 @@ char	**ft_strsplit(char const *s, char c)
 	j = 0;
 	k = 0;
 	chars = 0;
-	words = 0;
 	start = 0;
+	words = 0;
 	while (s[i] != 0)
 	{ 
 		if ((i == 0 || s[i - 1] == c) && s[i] != c) 
@@ -37,8 +52,23 @@ char	**ft_strsplit(char const *s, char c)
 	}
 	dest = (char **)malloc(sizeof(char *) * (words + 1));
 	if (dest == NULL)
-		return (NULL);	
-	i = 0;
+		return (NULL);
+	dest[words] = NULL;
+	i = 0;	
+	while (j < words)
+	{
+		while (s[i] != 0)
+		{
+			if ((i == 0 || s[i - 1] == c) && s[i] != c)
+			i++;
+		}
+		j++;
+	}
+
+
+
+
+
 	while (j < words + 1)
 	{
 		while (s[i] != 0)

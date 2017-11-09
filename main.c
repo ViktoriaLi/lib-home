@@ -517,7 +517,7 @@ int main(void)
     ft_strdel(&src38);
     printf("%s%s", "String after free calling is ", src38);*/
 
-    /*printf("%s", "\n\nFT_STRSPLIT FUNCTION\n");
+    printf("%s", "\n\nFT_STRSPLIT FUNCTION\n");
     int i_spl = 0;
     char const *src39 = "*hello*fellow***students*";
     printf("%s%s\n", "Original string is: ", src39);
@@ -526,9 +526,9 @@ int main(void)
     {
         printf("%s%d%s\n", "Element of aray with index ", i_spl, dest39[i_spl]);
         i_spl++;
-    }*/
+    }
     
-    printf("%s", "\n\nFT_ITOA FUNCTION\n");
+    /*printf("%s", "\n\nFT_ITOA FUNCTION\n");
     printf("%s%d\n", "Original number is ", 0);
     printf("%s%s\n", "Result of itoa is ", ft_itoa(0));
     printf("%s%d\n", "Original number is ", 5);
@@ -542,6 +542,6 @@ int main(void)
     printf("%s%d\n", "Original number is ", -123);
     printf("%s%s\n", "Result of itoa is ", ft_itoa(-123));
     printf("%s%d\n", "Original number is ", -356146876);
-    printf("%s%s\n", "Result of itoa is ", ft_itoa(-356146876));
+    printf("%s%s\n", "Result of itoa is ", ft_itoa(-356146876));*/
 
 }

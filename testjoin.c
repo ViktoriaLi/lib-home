@@ -12,11 +12,26 @@
 
 #include <stdlib.h>
 
-static char	*copy_strings(char const *s1, char const *s2, char *fs1)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	char	*fs1;
 
+	i = 0;
+	j = 0;
+
+	if (s1 == NULL)
+		return (NULL);
+	if (s1 == NULL)
+		return (s1);
+	fs1 = (char *)s1;
+	while (fs1[i] != 0)
+		i++;
+	while (s2[j] != 0)	
+		j++;
+	if (!(fs1 = malloc(sizeof(char) * (j + i - 1))))
+		return (NULL);
 	i = 0;
 	j = 0;
 	while (s1[i] != 0)
@@ -32,26 +47,4 @@ static char	*copy_strings(char const *s1, char const *s2, char *fs1)
 	}
 	fs1[i] = 0;
 	return (fs1);
-}
-
-char		*ft_strjoin(char const *s1, char const *s2)
-{
-	int		i;
-	int		j;
-	char	*fs1;
-
-	i = 0;
-	j = 0;
-	if (s1 == NULL)
-		return (NULL);
-	if (s1 == NULL)
-		return (char *)(s1);
-	fs1 = (char *)s1;
-	while (fs1[i] != 0)
-		i++;
-	while (s2[j] != 0)
-		j++;
-	if (!(fs1 = malloc(sizeof(char) * (j + i - 1))))
-		return (NULL);
-	return (copy_strings(s1, s2, fs1));
 }

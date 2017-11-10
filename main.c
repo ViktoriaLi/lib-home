@@ -119,8 +119,8 @@ int main(void)
 	printf("%s", "Custom MEMCPY output\n");
 	unsigned char src3[] = "Hello";
     unsigned char dest3[] = "ABCD";
-	printf("%s%s\n", "0 bytes", ft_memcpy(dest3, src2, 0));
-    printf("%s%s\n", "2 bytes", ft_memcpy(dest3, src2, 2));*/
+	printf("%s%s\n", "0 bytes", ft_memcpy(dest3, src3, 0));
+    printf("%s%s\n", "2 bytes", ft_memcpy(dest3, src3, 2));*/
 
 
 	/*char src3[] = "1234567890";
@@ -139,7 +139,7 @@ int main(void)
     printf("%s%d", "\nReturned value is ", (int)ft_memccpy(dest5, src4, 30, 5));
     printf("%s%s", "\nDestination string with not found c symbol is ", dest5);*/
 
-    /*printf("%s", "MEMMOVE FUNCTION\nOriginal MEMMOVE output\nSRC string is ");
+    printf("%s", "MEMMOVE FUNCTION\nOriginal MEMMOVE output\nSRC string is ");
     char src22[] = "1234567890";
     char dest22[] = "abcdefghijk";
     printf("%s%s", "\nOriginal string is ", dest22);
@@ -149,7 +149,7 @@ int main(void)
     char dest23[] = "abcdefghijk";
     printf("%s%s", "\n\nsCustom MEMMOVE output\nSRC string is ", dest23);
     printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", ft_memmove(&dest23[1], &src23[5], 5));
-    printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", ft_memmove(&dest23[1], &src23[5], 10));*/
+    printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", ft_memmove(&dest23[1], &src23[5], 10));
 
     /*printf("%s", "MEMCHR FUNCTION\nOriginal MEMCHR output\n");
     char src24[] = "1234567890";
@@ -496,7 +496,7 @@ int main(void)
     printf("%s%s", "Substring from index 4 and 5 symbols is: ", ft_strsub(src32, 4, 5));*/
 
     /*printf("%s", "\n\nFT_STRJOIN FUNCTION\n");
-    char const *src33 = "Hello,";
+    char const *src33 = "Hello, ";
     char const *src34 = "World!";
     printf("%s%s\n", "Should be Hello, World! string: ", ft_strjoin(src33, src34));*/
     
@@ -522,7 +522,7 @@ int main(void)
     ft_strdel(&src38);
     printf("%s%d", "String after free calling is ", (int)src38);*/
 
-    printf("%s", "\n\nFT_STRSPLIT FUNCTION\n");
+    /*printf("%s", "\n\nFT_STRSPLIT FUNCTION\n");
     int i_spl = 0;
     char const *src39 = "*hello*fellow***students*";
     printf("%s%s\n", "Original string is: ", src39);
@@ -531,7 +531,7 @@ int main(void)
     {
         printf("%s%d%s\n", "Element of aray with index ", i_spl, dest39[i_spl]);
         i_spl++;
-    }
+    }*/
     
     /*printf("%s", "\n\nFT_ITOA FUNCTION\n");
     printf("%s%d\n", "Original number is ", 0);

@@ -34,6 +34,7 @@ char    *ft_strjoin(char const *s1, char const *s2);
 char    *ft_strtrim(char const *s);
 char    **ft_strsplit(char const *s, char c);
 char    *ft_itoa(int n);
+void    ft_putchar_fd(char c, int fd);
 
 void test_ft_putstr(char *s)
 {
@@ -459,19 +460,23 @@ int main(void)
     printf("%s%s\n", "Original string is ", src32);
     printf("%s%s", "Returned string is ", ft_strmapi(src32, &test_strmapi));*/
 
-    printf("%s", "\n\nFT_PUTNBR output\n");
+    /*printf("%s", "\n\nFT_PUTNBR output\n");
     printf("%s\n", "Ouput of 1 is ");
     ft_putnbr(1);
-    printf("%s\n", "Ouput of 0 is ");
+    printf("\n%s\n", "Ouput of 0 is ");
     ft_putnbr(0);
-    printf("%s\n", "Output of 12345 is ");
+    printf("\n%s\n", "Ouput of 9 is ");
+    ft_putnbr(9);
+    printf("\n%s\n", "Output of 12345 is ");
     ft_putnbr(12345);
-    printf("%s\n", "Output of -12345 is ");
+    printf("%s\n", "Ouput of -1 is ");
+    ft_putnbr(-1);
+    printf("\n%s\n", "Output of -12345 is ");
     ft_putnbr(-12345);
-    /*printf("%s\n", "Output of -2147483648 is ");
-    ft_putnbr(-2147483648);
-    printf("%s\n", "Output of 2147483647 is ");
-    ft_putnbr(2147483647);*/
+    printf("\n%s\n", "Output of 2147483647 is ");
+    ft_putnbr(2147483647);
+    printf("\n%s\n", "Output of -2147483648 is ");
+    ft_putnbr(-2147483648);*/
 
     /*printf("%s", "\nFT_STREQU FUNCTION\n");
     printf("%s%d\n", "If the same empty strings result is ", ft_strequ("", ""));
@@ -501,13 +506,13 @@ int main(void)
     printf("%s%s\n", "Result of Hello string without whitespaces: ", ft_strtrim(src35));
     printf("%s%s\n", "Result of Hello string with whitespaces at the start and and: ", ft_strtrim(src36));*/
 
-    /*printf("%s", "\n\nFT_MEMDEL FUNCTION\n");
+    printf("%s", "\n\nFT_MEMDEL FUNCTION\n");
     char *src37;
     src37 = malloc(sizeof(char) * 10);
     src37 = "Hello";
     printf("%s%s", "Original string is ", src37);
     ft_memdel((void **)&src37);
-    printf("%s%s", "String after free calling is ", src37);*/
+    printf("%s%s", "String after free calling is ", src37);
 
     /*printf("%s", "\n\nFT_STRDEL FUNCTION\n");
     char *src38;

@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlikhotk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 13:05:37 by vlikhotk          #+#    #+#             */
-/*   Updated: 2017/11/08 13:05:41 by vlikhotk         ###   ########.fr       */
+/*   Created: 2017/11/10 15:33:57 by vlikhotk          #+#    #+#             */
+/*   Updated: 2017/11/10 15:34:09 by vlikhotk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdlib.h>
+#include <unistd.h>
 
-void	ft_memdel(void **ap)
+void	ft_putchar_fd(char c, int fd)
 {
-	if (ap && *ap)
-	{
-		free(*(ap));
-		*ap = NULL;
-	}
+	write(fd, &c, 1);
 }

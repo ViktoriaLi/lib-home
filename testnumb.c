@@ -1,23 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlikhotk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 13:05:37 by vlikhotk          #+#    #+#             */
-/*   Updated: 2017/11/08 13:05:41 by vlikhotk         ###   ########.fr       */
+/*   Created: 2017/11/01 17:13:39 by vlikhotk          #+#    #+#             */
+/*   Updated: 2017/11/01 18:33:28 by vlikhotk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdlib.h>
+#include <unistd.h>
 
-void	ft_memdel(void **ap)
-{
-	if (ap && *ap)
+void	ft_putnbr(int n)
+{	
+	int		d;
+	int 	c;
+	char	res;
+
+	c = 1;
+	res = 0;
+	if (n == -2147483648)
 	{
-		free(*(ap));
-		*ap = NULL;
+		d = 147483648;
+		n = 147483648;
+		write(1, "-2", 2);
+	}
+	if (n < 0)
+	{
+		d = -1 * n;
+		n = -1 * n;
+		write(1, "-", 1);
+	}
+	else
+		d = n;
+	while (d > 9)
+	{
+		d = d / 10;
+		c = c * 10;
+	}
+	while (c > 0 && n >= 0)
+	{
+		res = (n / c) % 10 + '0';
+		write(1, &res, 1);
+		c = c / 10;
 	}
 }

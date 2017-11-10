@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlikhotk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/01 17:13:39 by vlikhotk          #+#    #+#             */
-/*   Updated: 2017/11/01 18:33:28 by vlikhotk         ###   ########.fr       */
+/*   Created: 2017/11/10 15:46:20 by vlikhotk          #+#    #+#             */
+/*   Updated: 2017/11/10 15:46:38 by vlikhotk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-static void		print_chars(int d, int c, int n)
+static void		print_chars(int d, int c, int n, int fd)
 {
 	char res;
 
@@ -25,12 +25,12 @@ static void		print_chars(int d, int c, int n)
 	while (c > 0 && n >= 0)
 	{
 		res = (n / c) % 10 + '0';
-		write(1, &res, 1);
+		write(fd, &res, 1);
 		c = c / 10;
 	}
 }
 
-void			ft_putnbr(int n)
+void ft_putnbr_fd(int n, int fd)
 {
 	int		d;
 	int		c;
@@ -40,15 +40,15 @@ void			ft_putnbr(int n)
 	{
 		d = 147483648;
 		n = 147483648;
-		write(1, "-2", 2);
+		write(fd, "-2", 2);
 	}
 	if (n < 0)
 	{
 		d = -1 * n;
 		n = -1 * n;
-		write(1, "-", 1);
+		write(fd, "-", 1);
 	}
 	else
 		d = n;
-	print_chars(d, c, n);
+	print_chars(d, c, n, fd);
 }

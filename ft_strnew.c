@@ -15,12 +15,11 @@
 
 char	*ft_strnew(size_t size)
 {
-	size_t	i;
 	char	*dest;
+	size_t	i;
 
 	i = 0;
-	dest = malloc(sizeof(char) * size);
-	if (dest == NULL)
+	if (!(dest = malloc(sizeof(char) * (size + 1))))
 		return (NULL);
 	while (i < size)
 	{

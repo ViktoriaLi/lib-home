@@ -82,13 +82,15 @@ int main(void)
 	printf("%s%s\n", "Set symbol 2 to 5 bytes ", memset(src, '2', 5));
 	printf("%s%s\n", "Set symbol 3 to 1 byte ", memset(src, '3', 1));
 	printf("%s%s\n", "Set 0 to 1 bytes ", memset(src, 0, 1));
+    //printf("%s%s\n", "Set 0 to 1 bytes ", memset(NULL, '3', 1));
 	printf("%s", "Custom MEMSET output\n");
 	unsigned char src1[] = "1234567890dfsfdgfdgfghf";
 	printf("%s\n", src1);
     printf("%s%s\n", "Set symbol 1 to 10 bytes ", ft_memset(src1, '1', 10));
 	printf("%s%s\n", "Set symbol 2 to 5 bytes ", ft_memset(src1, '2', 5));
 	printf("%s%s\n", "Set symbol 3 to 1 byte ", ft_memset(src1, '3', 1));
-	printf("%s%s\n", "Set 0 to 1 bytes ", ft_memset(src1, 0, 1));*/
+	printf("%s%s\n", "Set 0 to 1 bytes ", ft_memset(src1, 0, 1));
+    printf("%s%s\n", "Set symbol 3 to 1 byte ", ft_memset(NULL, '3', 1));*/
 
 	/*printf("%s", "BZERO FUNCTION\n");
 	int src[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9};
@@ -99,8 +101,10 @@ int main(void)
 	bzero(src, 8);
 	printf("%s%d\n", "bzero with 8 bytes ", *(src + 2));
 	bzero(src, 16);
-	printf("%s%d\n", "bzero with 16 bytes ", *(src + 3));
-	printf("%s", "Custom BZERO output\n");
+	printf("%s%d\n", "bzero with 16 bytes ", *(src + 3));*/
+    //bzero(NULL, 1);
+    //printf("%s%d\n", "bzero with 1 byte ", *src);
+	/*printf("%s", "Custom BZERO output\n");
 	int src1[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 	printf("%s%d\n", "Original string is ", *src1);
 	ft_bzero(src1, 1);
@@ -108,7 +112,10 @@ int main(void)
 	ft_bzero(src1, 8);
 	printf("%s%d\n", "bzero with 8 bytes ", *(src1 + 2));
 	ft_bzero(src1, 16);
-	printf("%s%d\n", "bzero with 16 bytes ", *(src1 + 3));*/
+	printf("%s%d\n", "bzero with 16 bytes ", *(src1 + 3));
+    ft_bzero(NULL, 1);
+    printf("%s%d\n", "bzero with 1 byte ", *src1);*/
+    
 
 	/*unsigned char src2[] = "Hello";
 	unsigned char dest2[] = "ABCD";
@@ -116,11 +123,15 @@ int main(void)
 	printf("%s", "Original MEMCPY output\n");
 	printf("%s%s\n", "0 bytes", memcpy(dest2, src2, 0));
 	printf("%s%s\n", "2 bytes", memcpy(dest2, src2, 2));
+    //printf("%s%s\n", "0 bytes", memcpy(NULL, src2, 2));
+    //printf("%s%s\n", "2 bytes", memcpy(dest2, NULL, 2));
 	printf("%s", "Custom MEMCPY output\n");
 	unsigned char src3[] = "Hello";
     unsigned char dest3[] = "ABCD";
 	printf("%s%s\n", "0 bytes", ft_memcpy(dest3, src3, 0));
-    printf("%s%s\n", "2 bytes", ft_memcpy(dest3, src3, 2));*/
+    printf("%s%s\n", "2 bytes", ft_memcpy(dest3, src3, 2));
+    printf("%s%s\n", "0 bytes", ft_memcpy(NULL, src3, 2));
+    printf("%s%s\n", "2 bytes", ft_memcpy(dest3, NULL, 2));*/
 
 
 	/*char src3[] = "1234567890";
@@ -131,6 +142,10 @@ int main(void)
 	printf("%s%s", "\nDestination string with found c symbol is ", dest4);
 	printf("%s%d", "\nReturned value is ", (int)memccpy(dest4, src3, 30, 5));
 	printf("%s%s", "\nDestination string with not found c symbol is ", dest4);
+    //printf("%s%d", "\nReturned value is ", (int)memccpy(NULL, src3, 30, 5));
+    //printf("%s%s", "\nDestination string with not found c symbol is ", dest4);
+    //printf("%s%d", "\nReturned value is ", (int)memccpy(dest4, NULL, 30, 5));
+    //printf("%s%s", "\nDestination string with not found c symbol is ", dest4);
 	char src4[] = "1234567890";
     char dest5[10];
 	printf("%s%s", "\n\nsCustom MEMCCPY output\nSRC string is ", src4);
@@ -139,23 +154,28 @@ int main(void)
     printf("%s%d", "\nReturned value is ", (int)ft_memccpy(dest5, src4, 30, 5));
     printf("%s%s", "\nDestination string with not found c symbol is ", dest5);*/
 
-    printf("%s", "MEMMOVE FUNCTION\nOriginal MEMMOVE output\nSRC string is ");
+    /*printf("%s", "MEMMOVE FUNCTION\nOriginal MEMMOVE output\nSRC string is ");
     char src22[] = "1234567890";
     char dest22[] = "abcdefghijk";
     printf("%s%s", "\nOriginal string is ", dest22);
     printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", memmove(&dest22[1], &src22[5], 5));
     printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", memmove(&dest22[1], &src22[5], 10));
+    printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", memmove(NULL, &src22[5], 5));
+    //printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", memmove(&dest22[1], NULL, 10));
     char src23[] = "1234567890";
     char dest23[] = "abcdefghijk";
     printf("%s%s", "\n\nsCustom MEMMOVE output\nSRC string is ", dest23);
     printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", ft_memmove(&dest23[1], &src23[5], 5));
     printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", ft_memmove(&dest23[1], &src23[5], 10));
+    printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", ft_memmove(NULL, &src23[5], 5));
+    //printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", ft_memmove(&dest23[1], NULL, 10));*/
 
     /*printf("%s", "MEMCHR FUNCTION\nOriginal MEMCHR output\n");
     char src24[] = "1234567890";
     printf("%s%s", "Original string is ", src24);
     printf("%s%s", "\nFind 9 in first 5 bytes ", memchr(src24, '9', 5));
     printf("%s%s", "\nFind 9 in first 10 bytes ", memchr(src24, '9', 10));
+    //printf("%s%s", "\nFind 9 in first 10 bytes ", memchr(NULL, '9', 10));
     printf("%s%s", "\n\nsCustom MEMCHR output\nSRC string is ", src24);
     printf("%s%s", "\nFind 9 in first 5 bytes ", ft_memchr(src24, '9', 5));
     printf("%s%s", "\nFind 9 in first 10 bytes ", ft_memchr(src24,'9', 10));*/
@@ -166,20 +186,24 @@ int main(void)
     printf("%s%d\n", "If first string longer result is ", memcmp("hello", "hell", 5));
     printf("%s%d\n", "If first string has bigger byte result is ", memcmp("hello", "aello", 3));
     printf("%s%d\n", "If first string has less byte result is ", memcmp("aello", "hello", 3));
+    printf("%s%d\n", "If len is 0: ", memcmp("aello", "hello", 0));
+    //printf("%s%d\n", "If first string has less byte result is ", memcmp("aello", NULL, 3));
+    //printf("%s%d\n", "If first string has less byte result is ", memcmp(NULL, "hello", 3));
     printf("\n\n%s\n", "CUSTOM STRCMP output");
     printf("%s%d\n", "If strings are the same result is ", ft_memcmp("hello", "hello", 3));
     printf("%s%d\n", "If first string shorter result is ", ft_memcmp("hell", "hello", 5));
     printf("%s%d\n", "If first string longer result is ", ft_memcmp("hello", "hell", 5));
     printf("%s%d\n", "If first string has bigger byte result is ", ft_memcmp("hello", "aello", 3));
-    printf("%s%d\n", "If first string has less byte result is ", ft_memcmp("aello", "hello", 3));*/
+    printf("%s%d\n", "If first string has less byte result is ", ft_memcmp("aello", "hello", 3));
+    printf("%s%d\n", "If len is 0: ", ft_memcmp("aello", "hello", 0));*/
 
-	/*printf("%s", "STRLEN FUNCTION\nORIGINAL STRLEN output");
-	printf("%s%d", "\nThe length of \"Hello\" is ", strlen("Hello"));
-	printf("%s%d", "\nThe length of empty string is is ", strlen(""));
-	printf("%s", "\n\nCUSTOM STRLEN output");
-    printf("%s%d", "\nThe length of \"Hello\" is ", ft_strlen("Hello"));
-    printf("%s%d", "\nThe length of empty string is is ", ft_strlen(""));*/
-  
+    /*printf("%s", "STRLEN FUNCTION\n\nORIGINAL STRLEN output");
+    printf("%s%lu", "\nThe length of \"Hello\" is ", strlen("Hello"));
+    printf("%s%lu", "\nThe length of empty string is is ", strlen(""));
+    printf("%s", "\n\nCUSTOM STRLEN output");
+    printf("%s%lu", "\nThe length of \"Hello\" is ", ft_strlen("Hello"));
+    printf("%s%lu\n\n", "\nThe length of empty string is is ", ft_strlen(""));*/
+
 	/*printf("%s", "STRDUP FUNCTION\nORIGINAL STRDUP output");
 	printf("%s%s", "\nOutput of \"Hello\" string is ", strdup("Hello"));
 	printf("%s", "\n\nCUSTOM STRDUP output");
@@ -531,9 +555,18 @@ int main(void)
     {
         printf("%s%d%s\n", "Element of aray with index ", i_spl, dest39[i_spl]);
         i_spl++;
+    }
+    int i_spl1 = 0;
+    char const *src40 = "*hello*";
+    printf("%s%s\n", "Original string is: ", src40);
+    char **dest40 = ft_strsplit(src39, '*');
+    while (dest40[i_spl1] != NULL)
+    {
+        printf("%s%d%s\n", "Element of aray with index ", i_spl1, dest40[i_spl1]);
+        i_spl1++;
     }*/
     
-    /*printf("%s", "\n\nFT_ITOA FUNCTION\n");
+    printf("%s", "\n\nFT_ITOA FUNCTION\n");
     printf("%s%d\n", "Original number is ", 0);
     printf("%s%s\n", "Result of itoa is ", ft_itoa(0));
     printf("%s%d\n", "Original number is ", 5);
@@ -547,6 +580,10 @@ int main(void)
     printf("%s%d\n", "Original number is ", -123);
     printf("%s%s\n", "Result of itoa is ", ft_itoa(-123));
     printf("%s%d\n", "Original number is ", -356146876);
-    printf("%s%s\n", "Result of itoa is ", ft_itoa(-356146876));*/
+    printf("%s%s\n", "Result of itoa is ", ft_itoa(-356146876));
+    printf("%s%d\n", "Original number is ", 2147483647);
+    printf("%s%s\n", "Result of itoa is ", ft_itoa(2147483647));
+    printf("%s%ld\n", "Original number is ", -2147483648);
+    printf("%s%s\n", "Result of itoa is ", ft_itoa(-2147483648));
 
 }

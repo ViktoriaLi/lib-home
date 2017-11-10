@@ -24,18 +24,23 @@ char	*ft_strtrim(char const *s)
 	len = 0;
 	if (s == NULL)
 		return (NULL);
-	while (s[i++] != 0)
+	while (s[i] != 0)
 	{
 		if (s[i] != ' ' && s[i] != '\n' && s[i] != '\t')
 			len++;
+		i++;
 	}
 	i = 0;
 	if (!(dest = (char *)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
-	while (s[i++] != 0)
+	while (s[i] != 0)
 	{
 		if (s[i] != ' ' && s[i] != '\n' && s[i] != '\t')
-			dest[j++] = (char)s[i];
+		{
+			dest[j] = (char)s[i];
+			j++;
+		}
+		i++;
 	}
 	dest[j] = 0;
 	return (dest);

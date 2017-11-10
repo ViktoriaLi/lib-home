@@ -13,15 +13,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-static char	**mainsplit(char const *s, char **dest, char c)
+static char	**mainsplit(char const *s, char **dest, char c, int i)
 {
-	int i;
 	int k;
 	int j;
 	int start;
 
-	i = 0;
-	k = 0;
 	j = 0;
 	while (s[i] != 0)
 	{
@@ -30,18 +27,12 @@ static char	**mainsplit(char const *s, char **dest, char c)
 			start = i;
 			while (s[i] != c)
 				i++;
-			dest[j] = (char *)malloc(sizeof(char) * (i - start));
-			if (dest[j] == NULL)
+			if (!(dest[j] = (char *)malloc(sizeof(char) * (i - start))))
 				return (NULL);
-			while (s[start] != c)
-			{
-				dest[j][k] = s[start];
-				start++;
-				k++;
-			}
-			dest[j][k] = 0;
 			k = 0;
-			j++;
+			while (s[start] != c)
+				dest[j][k++] = s[start++];
+			dest[j++][k] = 0;
 		}
 		i++;
 	}
@@ -57,6 +48,8 @@ char		**ft_strsplit(char const *s, char c)
 
 	i = 0;
 	words = 0;
+	if (s == NULL)
+		return (NULL);
 	while (s[i] != 0)
 	{
 		if ((i == 0 || s[i - 1] == c) && s[i] != c)
@@ -66,5 +59,6 @@ char		**ft_strsplit(char const *s, char c)
 	dest = (char **)malloc(sizeof(char *) * (words + 1));
 	if (dest == NULL)
 		return (NULL);
-	return (mainsplit(s, dest, c));
+	i = 0;
+	return (mainsplit(s, dest, c, i));
 }

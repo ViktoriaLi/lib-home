@@ -506,13 +506,13 @@ int main(void)
     printf("%s%s\n", "Result of Hello string without whitespaces: ", ft_strtrim(src35));
     printf("%s%s\n", "Result of Hello string with whitespaces at the start and and: ", ft_strtrim(src36));*/
 
-    printf("%s", "\n\nFT_MEMDEL FUNCTION\n");
+    /*printf("%s", "\n\nFT_MEMDEL FUNCTION\n");
     char *src37;
     src37 = malloc(sizeof(char) * 10);
     src37 = "Hello";
     printf("%s%s", "Original string is ", src37);
     ft_memdel((void **)&src37);
-    printf("%s%s", "String after free calling is ", src37);
+    printf("%s%s", "String after free calling is ", src37);*/
 
     /*printf("%s", "\n\nFT_STRDEL FUNCTION\n");
     char *src38;
@@ -522,7 +522,7 @@ int main(void)
     ft_strdel(&src38);
     printf("%s%d", "String after free calling is ", (int)src38);*/
 
-    /*printf("%s", "\n\nFT_STRSPLIT FUNCTION\n");
+    printf("%s", "\n\nFT_STRSPLIT FUNCTION\n");
     int i_spl = 0;
     char const *src39 = "*hello*fellow***students*";
     printf("%s%s\n", "Original string is: ", src39);
@@ -531,7 +531,7 @@ int main(void)
     {
         printf("%s%d%s\n", "Element of aray with index ", i_spl, dest39[i_spl]);
         i_spl++;
-    }*/
+    }
     
     /*printf("%s", "\n\nFT_ITOA FUNCTION\n");
     printf("%s%d\n", "Original number is ", 0);

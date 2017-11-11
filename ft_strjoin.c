@@ -51,7 +51,7 @@ char		*ft_strjoin(char const *s1, char const *s2)
 		i++;
 	while (s2[j] != 0)
 		j++;
-	if (!(fs1 = malloc(sizeof(char) * (j + i - 1))))
+	if (!(fs1 = malloc((j + i - 1))))
 		return (NULL);
 	return (copy_strings(s1, s2, fs1));
 }

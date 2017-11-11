@@ -97,12 +97,12 @@ char			*ft_itoa(int n)
 	int		len;
 	char	*dest;
 
-	if (n < 0)
-		return (ft_negative_itoa(n));
-	else if(n == 2147483647)
+	if(n == 2147483647)
 		return (max_int(n));
 	else if(n == -2147483648)
 		return (min_int(n));
+	else if (n < 0 && n != -2147483648)
+		return (ft_negative_itoa(n));
 	len = 1;
 	d = n;
 	while (d > 9)

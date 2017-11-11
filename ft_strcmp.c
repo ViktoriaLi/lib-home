@@ -20,7 +20,7 @@ int		ft_strcmp(const char *s1, const char *s2)
 		if (s1[i] == s2[i])
 			i++;
 		else
-			return ((unsigned int)s1[i] - (unsigned int)s2[i]);
+			return (int)((unsigned char)s1[i] - (unsigned char)s2[i]);
 	}
 	return (0);
 }

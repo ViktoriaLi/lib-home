@@ -1,37 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlikhotk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/04 15:23:42 by vlikhotk          #+#    #+#             */
-/*   Updated: 2017/11/04 15:33:32 by vlikhotk         ###   ########.fr       */
+/*   Created: 2017/11/08 13:07:27 by vlikhotk          #+#    #+#             */
+/*   Updated: 2017/11/08 13:07:30 by vlikhotk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stdlib.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strtrim(char const *s)
 {
-	size_t			i;
-	size_t			j;
-	unsigned char	*dst1;
-	unsigned char	*src1;
+	int		i;
+	int		j;
+	int		len;
+	char	*dest;
 
 	i = 0;
 	j = 0;
-	if (len != 0)
+	len = 0;
+	if (s == NULL)
+		return (NULL);
+	while (s[i] != 0)
 	{
-		dst1 = (unsigned char *)dst;
-		src1 = (unsigned char *)src;
-		while (j < len)
+		if (s[i] != ' ' && s[i] != '\n' && s[i] != '\t')
+			len++;
+		i++;
+	}
+	i = 0;
+	if (!(dest = (char *)malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	while (s[i] != 0)
+	{
+		if (s[i] != ' ' && s[i] != '\n' && s[i] != '\t')
 		{
-			dst1[i] = src1[j];
-			i++;
+			dest[j] = (char)s[i];
 			j++;
 		}
-		dst = (void *)dst1;
+		i++;
 	}
-	return (dst);
+	dest[j] = 0;
+	return (dest);
 }

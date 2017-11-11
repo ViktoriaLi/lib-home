@@ -154,21 +154,21 @@ int main(void)
     printf("%s%d", "\nReturned value is ", (int)ft_memccpy(dest5, src4, 30, 5));
     printf("%s%s", "\nDestination string with not found c symbol is ", dest5);*/
 
-    /*printf("%s", "MEMMOVE FUNCTION\nOriginal MEMMOVE output\nSRC string is ");
+    printf("%s", "MEMMOVE FUNCTION\nOriginal MEMMOVE output\nSRC string is ");
     char src22[] = "1234567890";
     char dest22[] = "abcdefghijk";
     printf("%s%s", "\nOriginal string is ", dest22);
     printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", memmove(&dest22[1], &src22[5], 5));
     printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", memmove(&dest22[1], &src22[5], 10));
-    printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", memmove(NULL, &src22[5], 5));
+    //printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", memmove(NULL, &src22[5], 5));
     //printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", memmove(&dest22[1], NULL, 10));
     char src23[] = "1234567890";
     char dest23[] = "abcdefghijk";
     printf("%s%s", "\n\nsCustom MEMMOVE output\nSRC string is ", dest23);
     printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", ft_memmove(&dest23[1], &src23[5], 5));
     printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", ft_memmove(&dest23[1], &src23[5], 10));
-    printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", ft_memmove(NULL, &src23[5], 5));
-    //printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", ft_memmove(&dest23[1], NULL, 10));*/
+    //printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", ft_memmove(NULL, &src23[5], 5));
+    //printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", ft_memmove(&dest23[1], NULL, 10));
 
     /*printf("%s", "MEMCHR FUNCTION\nOriginal MEMCHR output\n");
     char src24[] = "1234567890";
@@ -566,7 +566,7 @@ int main(void)
         i_spl1++;
     }*/
     
-    printf("%s", "\n\nFT_ITOA FUNCTION\n");
+    /*printf("%s", "\n\nFT_ITOA FUNCTION\n");
     printf("%s%d\n", "Original number is ", 0);
     printf("%s%s\n", "Result of itoa is ", ft_itoa(0));
     printf("%s%d\n", "Original number is ", 5);
@@ -584,6 +584,6 @@ int main(void)
     printf("%s%d\n", "Original number is ", 2147483647);
     printf("%s%s\n", "Result of itoa is ", ft_itoa(2147483647));
     printf("%s%ld\n", "Original number is ", -2147483648);
-    printf("%s%s\n", "Result of itoa is ", ft_itoa(-2147483648));
+    printf("%s%s\n", "Result of itoa is ", ft_itoa(-2147483648));*/
 
 }

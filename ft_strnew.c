@@ -26,5 +26,6 @@ char	*ft_strnew(size_t size)
 		dest[i] = 0;
 		i++;
 	}
+	dest[i] = 0;
 	return (dest);
 }

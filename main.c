@@ -566,7 +566,7 @@ int main(void)
         i_spl1++;
     }*/
     
-    printf("%s", "\n\nFT_ITOA FUNCTION\n");
+    /*printf("%s", "\n\nFT_ITOA FUNCTION\n");
     printf("%s%d\n", "Original number is ", 0);
     printf("%s%s\n", "Result of itoa is ", ft_itoa(0));
     printf("%s%d\n", "Original number is ", 5);
@@ -584,6 +584,6 @@ int main(void)
     printf("%s%d\n", "Original number is ", 2147483647);
     printf("%s%s\n", "Result of itoa is ", ft_itoa(2147483647));
     printf("%s%ld\n", "Original number is ", -2147483648);
-    printf("%s%s\n", "Result of itoa is ", ft_itoa(-2147483648));
+    printf("%s%s\n", "Result of itoa is ", ft_itoa(-2147483648));*/
 
 }

@@ -13,9 +13,60 @@
 #include <string.h>
 #include <stdlib.h>
 
+static char		*min_int(int n)
+{
+	int		len;
+	char	*dest;
+
+	len = 2;
+	n = 2147483648;
+	while (n > 9)
+	{
+		n = n / 10;
+		len++;
+	}
+	n = 2147483648;
+	if (!(dest = (char *)malloc((len + 1))))
+		return (NULL);
+	dest[len--] = 0;
+	while (len >= 1)
+	{
+		dest[len] = n % 10 + '0';
+		n = n / 10;
+		len--;
+	}
+	dest[len] = '-';
+	return (dest);
+}
+
+static char		*max_int(int n)
+{
+	int		len;
+	char	*dest;
+
+	len = 1;
+	n = 2147483647;
+	while (n > 9)
+	{
+		n = n / 10;
+		len++;
+	}
+	n = 2147483647;
+	if (!(dest = (char *)malloc((len + 1))))
+		return (NULL);
+	dest[len--] = 0;
+	while (len >= 0)
+	{
+		dest[len] = n % 10 + '0';
+		n = n / 10;
+		len--;
+	}
+	return (dest);
+}
+
 static char		*ft_negative_itoa(int n)
 {
-	int		d;
+	long	d;
 	int		len;
 	char	*dest;
 
@@ -27,8 +78,7 @@ static char		*ft_negative_itoa(int n)
 		len++;
 	}
 	d = -1 * n;
-	dest = (char *)malloc(sizeof(char) * (len + 1));
-	if (dest == NULL)
+	if (!(dest = (char *)malloc((len + 1))))
 		return (NULL);
 	dest[len--] = 0;
 	while (len)
@@ -43,16 +93,25 @@ static char		*ft_negative_itoa(int n)
 
 char			*ft_itoa(int n)
 {
-	int		d;
+	long	d;
 	int		len;
 	char	*dest;
 
 	if (n < 0)
 		return (ft_negative_itoa(n));
+	else if(n == 2147483647)
+		return (max_int(n));
+	else if(n == -2147483648)
+		return (min_int(n));
 	len = 1;
 	d = n;
-	dest = (char *)malloc(sizeof(char) * (len + 1));
-	if (dest == NULL)
+	while (d > 9)
+	{
+		d = d / 10;
+		len++;
+	}
+	d = n;
+	if (!(dest = (char *)malloc((len + 1))))
 		return (NULL);
 	dest[len--] = 0;
 	while (len >= 0)

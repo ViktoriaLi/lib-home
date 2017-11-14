@@ -33,6 +33,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 				i++;
 				j++;
 			}
+			(char)big[i] = 0;
 			if ((j == len - 1) || little[j] == 0)
 				return (char*)(&big[res]);
 		}

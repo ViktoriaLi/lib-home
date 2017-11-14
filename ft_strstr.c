@@ -21,7 +21,7 @@ char	*ft_strstr(const char *big, const char *little)
 	i = 0;
 	j = 0;
 	if (little[i] == 0 || &little[i] == NULL)
-		return (char *)(big);
+		return (char *)(big1);
 	while (big[i] != 0)
 	{
 		if (big[i] == little[j] && big[i + 1] == little[j + 1])
@@ -32,6 +32,7 @@ char	*ft_strstr(const char *big, const char *little)
 				i++;
 				j++;
 			}
+			big[i] = 0;
 			return (char *)(&big[res]);
 		}
 		i++;

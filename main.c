@@ -211,7 +211,7 @@ int main(void)
     printf("%s%d", "\nReturned value is ", (int)ft_memccpy(dest5, src4, 30, 5));
     printf("%s%s", "\nDestination string with not found c symbol is ", dest5);*/
 
-    /*printf("%s", "MEMMOVE FUNCTION\nOriginal MEMMOVE output\nSRC string is ");
+    printf("%s", "MEMMOVE FUNCTION\nOriginal MEMMOVE output\nSRC string is ");
     char src22[] = "1234567890";
     char dest22[] = "abcdefghijk";
     printf("%s%s", "\nOriginal string is ", dest22);
@@ -227,9 +227,9 @@ int main(void)
     printf("%s%s", "\nDestination string with 3 bytes from src 5 to dest 1", (char *)ft_memmove(&dest23[1], &src23[5], 3));
     printf("%s%s", "\nDestination string with 3 bytes from src 5 to dest 1", (char *)ft_memmove(&dest23[5], &src23[1], 3));
     printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", (char *)ft_memmove(&dest23[1], &src23[5], 7));
-    printf("%s%s", "\nDestination string with 5 bytes from src 1 to dest 5", (char *)ft_memmove(&dest23[5], &src23[1], 7));*/
-    //printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", ft_memmove(NULL, &src23[5], 5));
-    //printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", ft_memmove(&dest23[1], NULL, 10));*/
+    printf("%s%s", "\nDestination string with 5 bytes from src 1 to dest 5", (char *)ft_memmove(&dest23[5], &src23[1], 7));
+    //printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", ft_memmove(NULL, &src23[5], 5))
+    //printf("%s%s", "\nDestination string with 5 bytes from src 5 to dest 1", ft_memmove(&dest23[1], NULL, 10));
 
     /*printf("%s", "MEMCHR FUNCTION\nOriginal MEMCHR output\n");
     char src24[] = "1234567890";
@@ -317,15 +317,19 @@ int main(void)
 	printf("%s%s\n", "\nIf len longer than s2 dest string is ", ft_strncat(src15, dest16, 10));*/
 
 	/*printf("%s", "STRLCAT FUNCTION\nORIGINAL STRLCAT output");
-    char src17[10] = "1234567890";
-    char dest18[10] = "1234567890";
-    printf("%s%lu\n", "\nIf len less than s2 dest string is ", strlcat(src17[10], dest18[18], 5));
-    printf("%s%lu\n", "\nIf len less than s2 dest string is ", strlcat(src17[18], dest18[10], 5));
-    printf("%s%lu\n", "\nIf len less than s2 dest string is ", strlcat(src17[10], dest18[18], 15));
-    printf("%s%lu\n", "\nIf len less than s2 dest string is ", strlcat(src17[18], dest18[10], 15));*/
-    /*char src19[10] = "123456789";
-    char dest20[10] = "123456789";
-    printf("%s%lu\n", "\nIf len less than s2 dest string is ", ft_strlcat(src19, dest20, 10));*/
+    char *src17 = "1234567890";
+    char *dest18 = "1234567890";
+    //printf("%s%lu\n", "\nIf len less than s2 dest string is ", strlcat(&src17[10], &dest18[18], 5));
+    printf("%s%lu\n", "\nIf len less than s2 dest string is ", strlcat(&src17[18], &dest18[10], 5));
+    //printf("%s%lu\n", "\nIf len less than s2 dest string is ", strlcat(&src17[10], &dest18[18], 15));
+    printf("%s%lu\n", "\nIf len less than s2 dest string is ", strlcat(&src17[18], &dest18[10], 15));
+    //printf("%s%lu\n", "\nIf len less than s2 dest string is ", strlcat(&src17[18], &dest18[10], 20));
+    char *src19 = "1234567890";
+    char *dest20 = "1234567890";
+    //printf("%s%lu\n", "\nIf len less than s2 dest string is ", ft_strlcat(&src19[10], &dest20[18], 5));
+    printf("%s%lu\n", "\nIf len less than s2 dest string is ", ft_strlcat(&src19[18], &dest20[10], 5));
+    //printf("%s%lu\n", "\nIf len less than s2 dest string is ", ft_strlcat(&src19[10], &dest20[18], 15));
+    printf("%s%lu\n", "\nIf len less than s2 dest string is ", ft_strlcat(&src19[18], &dest20[10], 15));*/
 
 	/*printf("%s", "STRCHR FUNCTION\nORIGINAL strchr output\n");
 	char src20[] = "1234567890sfdsgfhfghgfh";
@@ -625,7 +629,7 @@ int main(void)
     ft_strdel(&src38);
     printf("%s%d", "String after free calling is ", (int)src38);*/
 
-    printf("%s", "\n\nFT_STRSPLIT FUNCTION\n");
+    /*printf("%s", "\n\nFT_STRSPLIT FUNCTION\n");
     int i_spl = 0;
     char const *src39 = "*hello*fellow***students*";
     printf("%s%s\n", "Original string is: ", src39);
@@ -645,14 +649,14 @@ int main(void)
         i_spl1++;
     }
     int i_spl2 = 0;
-    char const *src41 = "                  olol";
+    char const *src41 = "********olol";
     printf("%s%s\n", "Original string is: ", src41);
     char **dest41 = ft_strsplit(src41, '*');
     while (dest41[i_spl2] != NULL)
     {
         printf("%s%d%s\n", "Element of aray with index ", i_spl2, dest41[i_spl2]);
         i_spl2++;
-    }
+    }*/
     
     /*printf("%s", "\n\nFT_ITOA FUNCTION\n");
     printf("%s%d\n", "Original number is ", 0);

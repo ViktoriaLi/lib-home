@@ -25,15 +25,20 @@ static char	**mainsplit(char const *s, char **dest, char c, int i)
 		if ((i == 0 || s[i - 1] == c) && s[i] != c)
 		{
 			start = i;
-			while (s[i] != c && s[i] != 0)
+			while (s[i] != c)
 				i++;
 			if (!(dest[j] = (char *)malloc(sizeof(char) * (i - start))))
 			{
-				free(dest[j]);
+				j = j - 1;
+				while ( j >= 0 )
+				{
+					free(dest[j]);
+					j--;
+				}
 				return (NULL);
 			}
 			k = 0;
-			while (s[start] != c && s[i] != 0)
+			while (s[start] != c)
 				dest[j][k++] = s[start++];
 			dest[j++][k] = 0;
 		}
@@ -58,12 +63,8 @@ char		**ft_strsplit(char const *s, char c)
 			words++;
 		i++;
 	}
-	;
 	if (!(dest = (char **)malloc(sizeof(char *) * (words + 1))))
-	{
-		free(dest);
 		return (NULL);
-	}
 	i = 0;
 	dest[words] = NULL;
 	return (mainsplit(s, dest, c, i));

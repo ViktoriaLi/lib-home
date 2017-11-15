@@ -344,6 +344,7 @@ int main(void)
     printf("%s%s", "String is found ", strstr("", dest21));
     printf("\n%s%s", "String 2 has 0 length ", strstr(src21, ""));
     printf("%s%s", "String partially found ", strstr("MZIRIBMZIRIBMZP", "MZIRIBMZP"));
+    printf("%s%s", "String partially found ", strstr("aaabbbaaabbb", "abbaaab"));
     printf("\n\n%s\n", "CUSTOM strstr output");
     char src34[] = "1234567890";
     char dest34[] = "34567";
@@ -352,6 +353,7 @@ int main(void)
     printf("%s%s", "String not found ", ft_strstr("", dest34));
     printf("\n%s%s", "String 2 has 0 length ", ft_strstr(src34, ""));
     printf("%s%s", "String partially found ", ft_strstr("MZIRIBMZIRIBMZP", "MZIRIBMZP"));
+    printf("%s%s", "String partially found ", ft_strstr("aaabbbaaabbb", "abbaaab"));
 
     printf("%s", "STRNSTR FUNCTION\nORIGINAL strnstr output\n");
     char src35[] = "1234567890";
@@ -585,7 +587,7 @@ int main(void)
     printf("%s", "\n\nFT_STRJOIN FUNCTION\n");
     char const *src33 = "Hello, ";
     char const *src34 = "World!";
-    printf("%s%s\n", "Should be Hello, World! string: ", ft_strjoin(src33, src34));*/
+    printf("%s%s\n", "Should be Hello, World! string: ", ft_strjoin(src33, src34));
     
     printf("%s", "\n\nFT_STRTRIM FUNCTION\n");
     char const *src35 = "Hello";
@@ -593,7 +595,7 @@ int main(void)
     printf("%s%s\n", "Result of Hello string without whitespaces: ", ft_strtrim(src35));
     printf("%s%s\n", "Result of Hello string with whitespaces at the start and and: ", ft_strtrim(src36));
 
-    /*printf("%s", "\n\nFT_MEMDEL FUNCTION\n");
+    printf("%s", "\n\nFT_MEMDEL FUNCTION\n");
     char *src37;
     src37 = malloc(sizeof(char) * 10);
     src37 = "Hello";
@@ -656,7 +658,7 @@ int main(void)
     printf("%s%d\n", "Original number is ", 2147483647);
     printf("%s%s\n", "Result of itoa is ", ft_itoa(2147483647));
     printf("%s%ld\n", "Original number is ", -2147483648);
-    printf("%s%s\n", "Result of itoa is ", ft_itoa(-2147483648));
+    printf("%s%s\n", "Result of itoa is ", ft_itoa(-2147483648));*/
 
     printf("%s", "\n\nBONUS PART\n");
 
@@ -672,7 +674,7 @@ int main(void)
         tmp1 = tmp1->next;
     }
     
-    printf("%s", "\nFT_LSTADD FUNCTION\n");
+    /*printf("%s", "\nFT_LSTADD FUNCTION\n");
     t_list *tmp2;
     tmp2 = NULL;
     tmp2 = test_lstnew(tmp2, "Hello", 10);

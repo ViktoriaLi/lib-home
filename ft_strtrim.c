@@ -18,26 +18,25 @@ char	*ft_strtrim(char const *s)
 	int start;
 	int end;
 	int k;
-	int len;
 	char *res;
 
 	i = 0;
 	k = 0;
 	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
 		i++;
+	/*if (s[i] == 0)
+		return ("");*/
 	start = i;
 	while (s[i] != 0)
 		i++;
-	len = i;
-	while (s[i] == 0 || s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
+	while (i > start - 1 && (s[i] == 0 || s[i] == ' ' || s[i] == '\n' || s[i] == '\t'))
 		i--;
 	end = i;
-	if (!(res = (char *)malloc(sizeof(char) * (end - start + len))))
+	if (!(res = (char *)malloc(sizeof(char) * (end - start + 2))))
 		return (NULL);
-	while (k < end - start + len)
+	while (k < end - start + 1)
 	{
-		res[k] = (char)s[start];
-		start++;;
+		res[k] = (char)s[start + k];
 		k++;
 	}
 	res[k] = 0;

@@ -332,7 +332,7 @@ int main(void)
 	printf("\n\n%s\n", "CUSTOM strrchr output");
 	printf("%s%s\n", "f symbol found ", ft_strrchr(src30, 'f'));
 	printf("%s%s", "Symbol not found ", ft_strrchr(src30, 'a'));
-	printf("\n%s%d\n\n", "Symbol is 0 ", (int)*ft_strrchr(src30, 0));
+	printf("\n%s%d\n\n", "Symbol is 0 ", (int)*ft_strrchr(src30, 0));*/
 
 	printf("%s", "STRSTR FUNCTION\nORIGINAL strstr output\n");
     char src21[] = "1234567890";
@@ -355,7 +355,7 @@ int main(void)
     printf("%s%s", "String partially found ", ft_strstr("MZIRIBMZIRIBMZP", "MZIRIBMZP"));
     printf("%s%s", "String partially found ", ft_strstr("aaabbbaaabbb", "abbaaab"));
 
-    printf("%s", "STRNSTR FUNCTION\nORIGINAL strnstr output\n");
+   /* printf("%s", "STRNSTR FUNCTION\nORIGINAL strnstr output\n");
     char src35[] = "1234567890";
     char dest35[] = "34567";
     printf("%s%s\n", "Original string is ", src35);
@@ -595,7 +595,7 @@ int main(void)
     printf("%s%s\n", "Result of Hello string without whitespaces: ", ft_strtrim(src35));
     printf("%s%s\n", "Result of Hello string with whitespaces at the start and and: ", ft_strtrim(src36));
 
-    printf("%s", "\n\nFT_MEMDEL FUNCTION\n");
+   	printf("%s", "\n\nFT_MEMDEL FUNCTION\n");
     char *src37;
     src37 = malloc(sizeof(char) * 10);
     src37 = "Hello";
@@ -701,7 +701,7 @@ int main(void)
     {
         printf("%s\n", (char *)tmp5->content);
         tmp5 = tmp5->next;
-    }*/
+    }
 
     printf("%s", "\nFT_LSTDELONE FUNCTION\n");
     t_list *tmp5;
@@ -709,11 +709,11 @@ int main(void)
     printf("%s\n", (char *)tmp5->content);
     printf("%d\n", (int)tmp5->content_size);
     printf("%s\n\n", (char *)tmp5->next);
-    ft_lstdelone(&tmp5, &del);
+    ft_lstdelone(&tmp5, del);
     //printf("%d\n", (int)tmp5);
 
 
-    /*printf("%s", "\nFT_LSTMAP FUNCTION\n");
+    printf("%s", "\nFT_LSTMAP FUNCTION\n");
     t_list *tmp7;
     tmp7 = ft_lstmap(tmp3, &test_lstmap);
     while (tmp7)

@@ -27,7 +27,7 @@ static char	**mainsplit(char const *s, char **dest, char c, int i)
 			start = i;
 			while (s[i] != c && s[i] != 0)
 				i++;
-			if (!(dest[j] = (char *)malloc(sizeof(char) * (i - start))))
+			if (!(dest[j] = (char *)malloc(sizeof(char) * (i - start + 1))))
 			{
 				j = j - 1;
 				while ( j >= 0 )
@@ -38,8 +38,8 @@ static char	**mainsplit(char const *s, char **dest, char c, int i)
 				return (NULL);
 			}
 			k = 0;
-			while (s[start] != c)
-				dest[j][k++] = s[start++];
+			while (k < i - start)
+				dest[j][k] = s[start + k++];
 			dest[j++][k] = 0;
 		}
 		i++;

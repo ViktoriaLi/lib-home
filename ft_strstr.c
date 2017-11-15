@@ -19,28 +19,18 @@ char	*ft_strstr(const char *big, const char *little)
 	int res;
 
 	i = 0;
-	j = 0;
-	if (little[i] == 0 || &little[i] == NULL)
+	if (little == NULL || little[i] == 0)
 		return (char *)(big);
 	while (big[i] != 0)
 	{
-		if (big[i] == little[j] && big[i + 1] == little[j + 1])
-		{	
-			res = i;
-			while (big[i] == little[j] && little[j] != 0 && big[i] != 0)
-			{
-				i++;
-				j++;
-			}
-			if (little[j] == 0)
-				return (char *)(&big[res]);
-			else
-			{
-				i++;
-				j = 0;
-			}
-		}
-		i++;
+		res = i;
+		j = 0;
+		while (big[i + j] == little[j] && little[j] != 0 && big[i + j] != 0)
+			j++;
+		if (little[j] == 0)
+			return (char *)(&big[res]);
+		else
+			i++;
 	}
 	return (NULL);
 }

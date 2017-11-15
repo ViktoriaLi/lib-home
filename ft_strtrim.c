@@ -14,7 +14,40 @@
 
 char	*ft_strtrim(char const *s)
 {
-	int		i;
+	int i;
+	int start;
+	int end;
+	int k;
+	char *res;
+
+	i = 0;
+	k = 0;
+	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
+		i++;
+	start = i;
+	i = 0;
+	while (s[i] != 0)
+		i++;
+	i = i - 1;
+	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
+		i--;
+	end = i + 1;
+	if (!(res = (char *)malloc(sizeof(char) * (end - start + 5))))
+		return (NULL);
+	while (k < end - start + 5)
+	{
+		res[k] = (char)s[start];
+		start++;;
+		k++;
+	}
+	res[k] = 0;
+	return (res);
+}
+
+
+/*
+
+int		i;
 	int		j;
 	char	*dest;
 	int start_spaces;
@@ -42,4 +75,4 @@ char	*ft_strtrim(char const *s)
 	}
 	dest[j] = 0;
 	return (dest);
-}
+*/

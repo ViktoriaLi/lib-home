@@ -33,12 +33,8 @@ int		ft_atoi(const char *str)
 		i++;
 	while (d[i] >= '0' && d[i] <= '9')
 	{
-		if (res > 9223372036854775807 && sign  == -1)
-			return (0);
-		if (res > 9223372036854775807 && sign == 1)
-			return (-1);
 		res = res * 10 + sign * (d[i] - '0');
 		i++;
 	}
-		return (int)(res);
+	return (int)(res);
 }

@@ -81,7 +81,7 @@ char test_strmapi(unsigned int i, char c2)
 
 void del(void *del_str, size_t del_size)
 {
-
+ 
     if (del_str)
     {
         free(del_str);
@@ -658,13 +658,12 @@ int main(void)
     printf("%s%d\n", "Original number is ", 2147483647);
     printf("%s%s\n", "Result of itoa is ", ft_itoa(2147483647));
     printf("%s%ld\n", "Original number is ", -2147483648);
-    printf("%s%s\n", "Result of itoa is ", ft_itoa(-2147483648));*/
+    printf("%s%s\n", "Result of itoa is ", ft_itoa(-2147483648));
 
     printf("%s", "\n\nBONUS PART\n");
 
     printf("%s", "\nFT_LSTNEW FUNCTION\n");
     t_list *tmp1;
-    //tmp1 = NULL;
     tmp1 = ft_lstnew("Hello", 10);
     while (tmp1)
     {
@@ -674,7 +673,7 @@ int main(void)
         tmp1 = tmp1->next;
     }
     
-    /*printf("%s", "\nFT_LSTADD FUNCTION\n");
+    printf("%s", "\nFT_LSTADD FUNCTION\n");
     t_list *tmp2;
     tmp2 = NULL;
     tmp2 = test_lstnew(tmp2, "Hello", 10);
@@ -702,22 +701,19 @@ int main(void)
     {
         printf("%s\n", (char *)tmp5->content);
         tmp5 = tmp5->next;
-    }
+    }*/
 
     printf("%s", "\nFT_LSTDELONE FUNCTION\n");
     t_list *tmp5;
-    tmp5 = NULL;
     tmp5 = test_lstnew(tmp5, "Hello", 10);
     printf("%s\n", (char *)tmp5->content);
     printf("%d\n", (int)tmp5->content_size);
     printf("%s\n\n", (char *)tmp5->next);
     ft_lstdelone(&tmp5, &del);
-    printf("%s\n", (char *)tmp5->content);
-    printf("%d\n", (int)tmp5->content_size);
-    printf("%s\n\n", (char *)tmp5->next);
+    //printf("%d\n", (int)tmp5);
 
 
-    printf("%s", "\nFT_LSTMAP FUNCTION\n");
+    /*printf("%s", "\nFT_LSTMAP FUNCTION\n");
     t_list *tmp7;
     tmp7 = ft_lstmap(tmp3, &test_lstmap);
     while (tmp7)

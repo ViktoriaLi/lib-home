@@ -12,66 +12,37 @@
 
 #include <stdlib.h>
 
-char	*ft_strtrim(char const *s)
+static char		*main_strtrim(char const *s, int i, int st, char *res)
 {
-	int i;
-	int start;
-	int end;
-	int k;
-	char *res;
+	int	k;
 
-	i = 0;
 	k = 0;
-	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
-		i++;
-	if (!s)
-		return (NULL);
-	start = i;
-	while (s[i] != 0)
-		i++;
-	while (i > start - 1 && (s[i] == 0 || s[i] == ' ' || s[i] == '\n' || s[i] == '\t'))
-		i--;
-	end = i;
-	if (!(res = (char *)malloc(sizeof(char) * (end - start + 2))))
-		return (NULL);
-	while (k < end - start + 1)
+	while (k < i - st + 1)
 	{
-		res[k] = (char)s[start + k];
+		res[k] = (char)s[st + k];
 		k++;
 	}
 	res[k] = 0;
-	return (res);
 }
 
-
-/*
-char	*ft_strtrim(char const *s)
+char			*ft_strtrim(char const *s)
 {
-	int i;
-	int start;
-	int end;
-	int k;
-	char *res;
+	int		i;
+	int		st;
+	char	*res;
 
 	i = 0;
-	k = 0;
+	if (!s)
+		return (NULL);
 	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
 		i++;
-	//if (s[i] == 0)
-		//return ("");
-	start = i;
+	st = i;
 	while (s[i] != 0)
 		i++;
-	while (i > start - 1 && (s[i] == 0 || s[i] == ' ' || s[i] == '\n' || s[i] == '\t'))
+	while (i > st - 1 && (s[i] == 0 || s[i] == ' ' ||
+		s[i] == '\n' || s[i] == '\t'))
 		i--;
-	end = i;
-	if (!(res = (char *)malloc(sizeof(char) * (end - start + 2))))
+	if (!(res = (char *)malloc(sizeof(char) * (i - st + 2))))
 		return (NULL);
-	while (k < end - start + 1)
-	{
-		res[k] = (char)s[start + k];
-		k++;
-	}
-	res[k] = 0;
-	return (res);
-*/
+	return (main_strtrim(s, i, st, res));
+}

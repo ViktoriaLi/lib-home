@@ -30,7 +30,7 @@ static void		print_chars(int d, int c, int n, int fd)
 	}
 }
 
-void ft_putnbr_fd(int n, int fd)
+void			ft_putnbr_fd(int n, int fd)
 {
 	int		d;
 	int		c;

@@ -17,12 +17,12 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 	size_t	i;
 
 	i = 0;
-	while (src[i] != 0 && i < len && dst[i] != 0)
+	while (i < len && src[i] != 0 && dst[i] != 0)
 	{
 		dst[i] = src[i];
 		i++;
 	}
-	if (src[i] == 0 && i != len - 1)
+	if (src[i] == 0)
 	{
 		while (i < len)
 		{
@@ -30,7 +30,7 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 			i++;
 		}
 	}
-	else if (dst[i] == 0 && i != len - 1)
+	else if (dst[i] == 0)
 		dst[i] = 0;
 	return (dst);
 }

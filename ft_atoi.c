@@ -10,39 +10,41 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(const char *str)
+static int	main_atoi(const char *str, int i, int sign)
 {
-	int			i;
-	int			sign;
-	long long 	res;
-	long long 	res2;
-	const char	*d;
+	long long	tmp;
+	long long	res;
+
+	res = 0;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		tmp = res * 10 + sign * (str[i] - '0');
+		if (tmp / 10 != res && sign == -1)
+			return (0);
+		if (tmp / 10 != res && sign == 1)
+			return (-1);
+		res = tmp;
+		i++;
+	}
+	return (int)(res);
+}
+
+int			ft_atoi(const char *str)
+{
+	int	i;
+	int	sign;
 
 	i = 0;
 	sign = 1;
-	res = 0;
-	d = str;
-	while (d[i] == ' ' || d[i] == '\n' || d[i] == '\t' || d[i] == '\v' ||
-		d[i] == '\f' || d[i] == '\r')
+	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' ||
+		str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
 		i++;
-	if (d[i] == '-')
+	if (str[i] == '-')
 	{
 		sign = -1;
 		i++;
 	}
-	else if (d[i] == '+')
+	else if (str[i] == '+')
 		i++;
-	while (d[i] >= '0' && d[i] <= '9')
-	{
-		res2 = res * 10 + sign * (d[i] - '0');
-		if (res2/10 != res && sign == -1) {
-			return (0);
-		}
-		if (res2/10 != res && sign == 1) {
-			return (-1);
-		}
-		res = res2;
-		i++;
-	}
-	return (int)(res);
+	return (main_atoi(str, i, sign));
 }

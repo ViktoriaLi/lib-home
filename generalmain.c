@@ -294,7 +294,7 @@ int main(void)
 	printf("%s%s\n", "\nIf len less than s2 dest string is ", ft_strncat(src14, dest15, 3));
 	char src15[20] = "Hello, ";
     char dest16[10] = "World";
-	printf("%s%s\n\n", "If len longer than s2 dest string is ", ft_strncat(src15, dest16, 10));*/
+	printf("%s%s\n\n", "If len longer than s2 dest string is ", ft_strncat(src15, dest16, 10));
 
 	printf("%s", "STRLCAT FUNCTION\nORIGINAL STRLCAT output");
     char dst19[20];
@@ -319,7 +319,7 @@ int main(void)
     //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat("there is no stars in the sky", "the cake is a lie !\0I'm hidden lol\r\n", 0));
     //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat(dst20, "aaa", 20));
 
-	/*printf("%s", "STRCHR FUNCTION\n\nORIGINAL strchr output\n");
+	printf("%s", "STRCHR FUNCTION\n\nORIGINAL strchr output\n");
 	char src20[] = "1234567890sfdsgfhfghgfh";
 	printf("%s%s\n", "Original string is ", src20);
 	printf("%s%s\n", "4 symbol found ", strchr(src20, '4'));
@@ -594,7 +594,7 @@ int main(void)
     printf("%s", "\n\nFT_STRJOIN FUNCTION\n");
     char const *src33 = "Hello, ";
     char const *src34 = "World!";
-    printf("%s%s\n", "Should be Hello, World! string: ", ft_strjoin(src33, src34));
+    printf("%s%s\n", "Should be Hello, World! string: ", ft_strjoin(src33, src34));*/
     
     printf("%s", "\n\nFT_STRTRIM FUNCTION\n");
     char const *src35 = "Hello";
@@ -604,7 +604,7 @@ int main(void)
     //printf("%s%d\n", "Result of Hello string with whitespaces at the start and and: ", (int)ft_strtrim(NULL));
     printf("%s%d\n", "Result of Hello string with whitespaces at the start and and: ", (int)*ft_strtrim(""));
 
-   	printf("%s", "\n\nFT_MEMDEL FUNCTION\n");
+   	/*printf("%s", "\n\nFT_MEMDEL FUNCTION\n");
     char *src37;
     src37 = malloc(sizeof(char) * 10);
     src37 = "Hello";

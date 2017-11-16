@@ -39,7 +39,10 @@ static char	**mainsplit(char const *s, char **dest, char c, int i)
 			}
 			k = 0;
 			while (k < i - start)
-				dest[j][k] = s[start + k++];
+			{
+				dest[j][k] = s[start + k];
+				k++;
+			}
 			dest[j++][k] = 0;
 		}
 		i++;

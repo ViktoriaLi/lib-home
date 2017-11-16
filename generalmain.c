@@ -297,26 +297,27 @@ int main(void)
 	printf("%s%s\n\n", "If len longer than s2 dest string is ", ft_strncat(src15, dest16, 10));*/
 
 	printf("%s", "STRLCAT FUNCTION\nORIGINAL STRLCAT output");
-    char *src17 = "1234567890";
-    char *dest18 = "567890";
+    char dst19[20];
     printf("%s%lu\n", "\nIf len is 5 and less than dest result is ", strlcat("1234567890", "567890", 5));
     printf("%s%lu\n", "\nIf len is 5 and longer than dest result is ", strlcat("567890", "1234567890", 5));
     printf("%s%lu\n", "\nIf len is 10 and equal with dest result is ", strlcat("1234567890", "567890", 10));
     printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat("1234567890", "567890", 3));
     printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat("567890", "1234567890", 3));
-    printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat("", "thx to ntoniolo for this test !", 4));
-    printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat("there is no stars in the sky", "the cake is a lie !\0I'm hidden lol\r\n", 0));
-    printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat("src17", "aaa", 11));
-    char *src19 = "1234567890";
-    char *dest20 = "1234567890";
+    printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat("1234567890", "567890", 0));
+    printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat("567890", "1234567890", 0));
+    //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat("", "thx to ntoniolo for this test !", 4));
+    //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat("there is no stars in the sky", "the cake is a lie !\0I'm hidden lol\r\n", 0));
+    //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat(dst19, "aaa", 20));
+    char dst20[20];
     printf("%s%lu\n", "\nIf len is 5 and less than dest result is ", ft_strlcat("1234567890", "567890", 5));
     printf("%s%lu\n", "\nIf len is 5 and longer than dest result is ", ft_strlcat("567890", "1234567890", 5));
     printf("%s%lu\n", "\nIf len is 10 and equal with dest result is ", ft_strlcat("1234567890", "567890", 10));
     printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat("1234567890", "567890", 3));
     printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat("567890", "1234567890", 3));
-    printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat("", "thx to ntoniolo for this test !", 4));
-    printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat("there is no stars in the sky", "the cake is a lie !\0I'm hidden lol\r\n", 0));
-    printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat("src19", "aaa", 11));
+    printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat("1234567890", "567890", 0));
+    //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat("", "thx to ntoniolo for this test !", 4));
+    //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat("there is no stars in the sky", "the cake is a lie !\0I'm hidden lol\r\n", 0));
+    //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat(dst20, "aaa", 20));
 
 	/*printf("%s", "STRCHR FUNCTION\n\nORIGINAL strchr output\n");
 	char src20[] = "1234567890sfdsgfhfghgfh";

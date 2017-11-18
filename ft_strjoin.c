@@ -42,6 +42,7 @@ char		*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
+	fs1 = NULL;
 	if (s1 == NULL)
 		return (NULL);
 	if (s1 == NULL)

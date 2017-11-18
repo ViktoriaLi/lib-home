@@ -27,12 +27,14 @@ static char	**mainsplit(char const *s, char **dest, char c, int i)
 			start = i;
 			while (s[i] != c && s[i] != 0)
 				i++;
+			dest[j] = NULL;
 			if (!(dest[j] = (char *)malloc(sizeof(char) * (i - start + 1))))
 			{
 				j = j - 1;
 				while ( j >= 0 )
 				{
 					free(dest[j]);
+					dest[j] = NULL;
 					j--;
 				}
 				return (NULL);
@@ -58,6 +60,7 @@ char		**ft_strsplit(char const *s, char c)
 
 	i = 0;
 	words = 0;
+	dest = NULL;
 	if (s == NULL)
 		return (NULL);
 	while (s[i] != 0)

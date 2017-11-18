@@ -13,10 +13,9 @@
 #include <string.h>
 #include <stdlib.h>
 
-static char		*min_int(int n)
+static char		*min_int(int n, char *dest)
 {
 	int		len;
-	char	*dest;
 
 	len = 3;
 	n = 214748364;
@@ -40,11 +39,10 @@ static char		*min_int(int n)
 	return (dest);
 }
 
-static char		*ft_negative_itoa(int n)
+static char		*ft_negative_itoa(int n, char *dest)
 {
 	long	d;
 	int		len;
-	char	*dest;
 
 	len = 2;
 	d = -1 * n;
@@ -72,10 +70,11 @@ char			*ft_itoa(int n)
 	int		len;
 	char	*dest;
 
+	dest = NULL;
 	if (n == -2147483648)
-		return (min_int(n));
+		return (min_int(n, dest));
 	if (n < 0 && n != -2147483648)
-		return (ft_negative_itoa(n));
+		return (ft_negative_itoa(n, dest));
 	len = 1;
 	d = n;
 	while (d > 9)

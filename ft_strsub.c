@@ -18,6 +18,7 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	char	*dest;
 
 	i = 0;
+	dest = NULL;
 	if (!s)
 		return (NULL);
 	if (!(dest = malloc(sizeof(char) * (len + 1))))

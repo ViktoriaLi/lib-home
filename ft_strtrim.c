@@ -23,6 +23,7 @@ static char		*main_strtrim(char const *s, int i, int st, char *res)
 		k++;
 	}
 	res[k] = 0;
+	return (res);
 }
 
 char			*ft_strtrim(char const *s)

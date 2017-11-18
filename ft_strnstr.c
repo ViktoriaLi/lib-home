@@ -26,8 +26,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		res = i;
 		j = 0;
 		len = j + len;
-		while (big[i + j] == little[j] && j < len && little[j] != 0 &&
-			big[i + j] != 0)
+		while (big[i + j] == little[j] && j < len && little[j] != 0 && big[i + j] != 0)
 			j++;
 		if (j == len || little[j] == 0)
 			return (char*)(&big[res]);
@@ -36,3 +35,27 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
+
+
+/*
+size_t	i;
+	size_t	j;
+	int		res;
+
+	i = 0;
+	if (little == NULL || little[i] == 0)
+		return (char *)(big);
+	while (big[i] != 0 && i < len)
+	{
+		res = i;
+		j = 0;
+		len = j + len;
+		while (big[i + j] == little[j] && j < len && little[j] != 0)
+			j++;
+		if (j == len || little[j] == 0)
+			return (char*)(&big[res]);
+		else
+			i++;
+	}
+	return (NULL);
+*/

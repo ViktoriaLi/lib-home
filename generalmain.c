@@ -360,7 +360,7 @@ int main(void)
     printf("%s%s", "String not found ", ft_strstr("", dest34));
     printf("\n%s%s", "String 2 has 0 length ", ft_strstr(src34, ""));
     printf("%s%s", "String partially found ", ft_strstr("MZIRIBMZIRIBMZP", "MZIRIBMZP"));
-    printf("%s%s", "String partially found ", ft_strstr("aaabbbaaabbb", "abbaaab"));*/
+    printf("%s%s", "String partially found ", ft_strstr("aaabbbaaabbb", "abbaaab"));
 
     printf("%s", "STRNSTR FUNCTION\nORIGINAL strnstr output\n");
     char src35[] = "1234567890";
@@ -378,7 +378,7 @@ int main(void)
     printf("\n%s%s", "String 2 has 0 length ", ft_strnstr(src36 , "", 3));
     printf("%s%s", "String partially found ", ft_strnstr("MZIRIBMZIRIBMZE123", "MZIRIBMZE", 9));
 
-    /*printf("%s", "STRCMP FUNCTION\n\nORIGINAL STRCMP output\n");
+    printf("%s", "STRCMP FUNCTION\n\nORIGINAL STRCMP output\n");
     printf("%s%d\n", "If strings are the same result is ", strcmp("hello", "hello"));
     printf("%s%d\n", "If first string shorter result is ", strcmp("hell", "hello"));
     printf("%s%d\n", "If first string longer result is ", strcmp("hello", "hell"));
@@ -618,7 +618,7 @@ int main(void)
     src38 = "Hello";
     printf("%s%s", "Original string is ", src38);
     ft_strdel(&src38);
-    printf("%s%d", "String after free calling is ", (int)src38);
+    printf("%s%d", "String after free calling is ", (int)src38);*/
 
     printf("%s", "\n\nFT_STRSPLIT FUNCTION\n");
     int i_spl = 0;
@@ -653,7 +653,7 @@ int main(void)
         i++;
     printf("%d", i);
     
-    printf("%s", "\n\nFT_ITOA FUNCTION\n");
+    /*printf("%s", "\n\nFT_ITOA FUNCTION\n");
     printf("%s%d\n", "Original number is ", 0);
     printf("%s%s\n", "Result of itoa is ", ft_itoa(0));
     printf("%s%d\n", "Original number is ", 5);

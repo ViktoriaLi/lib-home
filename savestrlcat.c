@@ -11,35 +11,6 @@
 /* ************************************************************************** */
 
 #include <string.h>
-#include "libft.h"
-
-static void	ft_concat(char *dst, const char *src, size_t size, size_t res)
-{
-	size_t i;
-	size_t j;
-
-	j = 0;
-	i = ft_strlen(dst);
-	if (size != 0 && size != res)
-		while (src[j] != 0 && i < size)
-		{
-			dst[i + j] = src[j];
-			j++;
-		}
-	if (size == 0)
-		while (dst[i] != 0)
-		{
-			dst[i + j] = src[j];
-			j++;
-		}
-	if (size == res)
-		while ((i + j) < size - 1)
-		{
-			dst[i + j] = src[j];
-			j++;
-		}
-	dst[i + j] = 0;
-}
 
 size_t		ft_strlcat(char *dst, const char *src, size_t size)
 {
@@ -57,6 +28,31 @@ size_t		ft_strlcat(char *dst, const char *src, size_t size)
 		res = j + size;
 	else
 		res = i + j;
-	ft_concat(dst, src, size, res);
+	j = 0;
+	if (size != 0 && size != res)
+	{
+		while (src[j] != 0 && i < size)
+		{
+			dst[i + j] = src[j];
+			j++;
+		}
+	}
+	if (size == 0)
+	{
+		while (dst[i] != 0)
+		{
+			dst[i + j] = src[j];
+			j++;
+		}
+	}
+	if (size == res)
+	{
+		while ((i + j) < size - 1)
+		{
+			dst[i + j] = src[j];
+			j++;
+		}
+	}
+	dst[i + j] = 0;
 	return (res);
 }

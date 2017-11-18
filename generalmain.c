@@ -360,7 +360,7 @@ int main(void)
     printf("%s%s", "String not found ", ft_strstr("", dest34));
     printf("\n%s%s", "String 2 has 0 length ", ft_strstr(src34, ""));
     printf("%s%s", "String partially found ", ft_strstr("MZIRIBMZIRIBMZP", "MZIRIBMZP"));
-    printf("%s%s", "String partially found ", ft_strstr("aaabbbaaabbb", "abbaaab"));
+    printf("%s%s", "String partially found ", ft_strstr("aaabbbaaabbb", "abbaaab"));*/
 
     printf("%s", "STRNSTR FUNCTION\nORIGINAL strnstr output\n");
     char src35[] = "1234567890";
@@ -378,7 +378,7 @@ int main(void)
     printf("\n%s%s", "String 2 has 0 length ", ft_strnstr(src36 , "", 3));
     printf("%s%s", "String partially found ", ft_strnstr("MZIRIBMZIRIBMZE123", "MZIRIBMZE", 9));
 
-    printf("%s", "STRCMP FUNCTION\n\nORIGINAL STRCMP output\n");
+    /*printf("%s", "STRCMP FUNCTION\n\nORIGINAL STRCMP output\n");
     printf("%s%d\n", "If strings are the same result is ", strcmp("hello", "hello"));
     printf("%s%d\n", "If first string shorter result is ", strcmp("hell", "hello"));
     printf("%s%d\n", "If first string longer result is ", strcmp("hello", "hell"));
@@ -594,7 +594,7 @@ int main(void)
     printf("%s", "\n\nFT_STRJOIN FUNCTION\n");
     char const *src33 = "Hello, ";
     char const *src34 = "World!";
-    printf("%s%s\n", "Should be Hello, World! string: ", ft_strjoin(src33, src34));*/
+    printf("%s%s\n", "Should be Hello, World! string: ", ft_strjoin(src33, src34));
     
     printf("%s", "\n\nFT_STRTRIM FUNCTION\n");
     char const *src35 = "Hello";
@@ -604,7 +604,7 @@ int main(void)
     //printf("%s%d\n", "Result of Hello string with whitespaces at the start and and: ", (int)ft_strtrim(NULL));
     printf("%s%d\n", "Result of Hello string with whitespaces at the start and and: ", (int)*ft_strtrim(""));
 
-   	/*printf("%s", "\n\nFT_MEMDEL FUNCTION\n");
+   	printf("%s", "\n\nFT_MEMDEL FUNCTION\n");
     char *src37;
     src37 = malloc(sizeof(char) * 10);
     src37 = "Hello";

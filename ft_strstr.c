@@ -19,7 +19,7 @@ char	*ft_strstr(const char *big, const char *little)
 	int res;
 
 	i = 0;
-	if (/*little == NULL || */little[i] == 0)
+	if (little[i] == 0)
 		return (char *)(big);
 	while (big[i] != 0)
 	{

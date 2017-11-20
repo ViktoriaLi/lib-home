@@ -19,8 +19,6 @@ char	*ft_strchr(const char *s, int c)
 
 	j = 0;
 	len = 0;
-	/*if (c < 0 || c > 127)
-		return (NULL);*/
 	while (s[len] != 0)
 		len++;
 	if (c == 0)

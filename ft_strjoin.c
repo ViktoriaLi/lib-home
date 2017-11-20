@@ -45,7 +45,7 @@ char		*ft_strjoin(char const *s1, char const *s2)
 	fs1 = NULL;
 	if (s1 == NULL)
 		return (NULL);
-	if (s1 == NULL)
+	if (s2 == NULL)
 		return (char *)(s1);
 	fs1 = (char *)s1;
 	while (fs1[i] != 0)

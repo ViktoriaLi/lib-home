@@ -17,18 +17,62 @@ static void	ft_concat(char *dst, const char *src, size_t size, size_t res)
 {
 	size_t i;
 	size_t j;
+	size_t len;
 
 	i = ft_strlen(dst);
-	j = ft_strlen(src);
-	if (size != 0 && size != res && size >= j)
+	len = ft_strlen(src);
+	j = 0;
+	if (size == 0 || (size < i && i != 0))
+		while (dst[i] != 0)
+		{
+			dst[i + j] = src[j];
+			j++;
+		}
+	if (size == res || len > size)
+		while ((i + j) < size - 1)
+		{
+			dst[i + j] = src[j];
+			j++;
+		}
+	if (size != 0 && size != res && size >= len)
 	{
-		j = 0;
 		while (src[j] != 0 && i < size)
 		{
 			dst[i + j] = src[j];
 			j++;
 		}
 	}
+	dst[i + j] = 0;
+}
+
+size_t		ft_strlcat(char *dst, const char *src, size_t size)
+{
+	size_t i;
+	size_t j;
+	size_t res;
+
+	i = 0;
+	j = 0;
+	while (dst[i] != 0)
+		i++;
+	while (src[j] != 0)
+		j++;
+	if (size == 0 || (size < i && i != 0))
+		res = j + size;
+	else
+		res = i + j;
+	ft_concat(dst, src, size, res);
+	return (res);
+}
+
+/*
+static void	ft_concat(char *dst, const char *src, size_t size, size_t res)
+{
+	size_t i;
+	size_t j;
+
+	i = ft_strlen(dst);
+	j = ft_strlen(src);
 	if (size == 0 || (i != 0 && size < i))
 	{
 		j = 0;
@@ -60,67 +104,54 @@ size_t		ft_strlcat(char *dst, const char *src, size_t size)
 	j = 0;
 	while (dst[i])
 		i++;
-	while (src[j])
+	while (src[j++])
 		j++;
-	if ( (i != 0 && size < i) || size == 0)
+	if ((i != 0 && size < i) || size == 0)
 		res = j + size;
 	else
 		res = i + j;
-	ft_concat(dst, src, size, res);
-	return (res);
-}
-
-/*
-size_t i;
-	size_t j;
-
-	j = 0;
-	i = ft_strlen(dst);
-	if (size != 0 && size != res)
+	if (size != 0 && size != res && size >= j)
+	{
+		j = 0;
 		while (src[j] != 0 && i < size)
 		{
 			dst[i + j] = src[j];
 			j++;
 		}
-	if (size == 0)
-		while (dst[i] != 0)
-		{
-			dst[i + j] = src[j];
-			j++;
-		}
-	if (size == res)
-		while ((i + j) < size - 1)
-		{
-			dst[i + j] = src[j];
-			j++;
-		}
-	dst[i + j] = 0;
+		dst[i + j] = 0;
+	}
+	else
+		ft_concat(dst, src, size, res);
+	return (res);
+}
 */
 
 /*
-size_t i;
+
+static void	ft_concat(char *dst, const char *src, size_t size, size_t res)
+{
+	size_t i;
 	size_t j;
+	size_t len;
 
 	i = ft_strlen(dst);
-	j = ft_strlen(src);
-	if (size != 0 && size != res && size >= j)
-		while (src[j] != 0 && i < size)
-		{
-			j = 0;
-			dst[i + j] = src[j];
-			j++;
-		}
-	if (size == 0)
+	len = ft_strlen(src);
+	j = 0;
+	if (size == 0 || (size < i && i != 0))
 		while (dst[i] != 0)
 		{
-			j = 0;
 			dst[i + j] = src[j];
 			j++;
 		}
-	if (size == res || j > size)
-	{
-		j = 0;
+	if (size == res || len > size)
 		while ((i + j) < size - 1)
+		{
+			dst[i + j] = src[j];
+			j++;
+		}
+	if (size != 0 && size != res && size >= len)
+	{
+		while (src[j] != 0 && i < size)
 		{
 			dst[i + j] = src[j];
 			j++;
@@ -141,10 +172,11 @@ size_t		ft_strlcat(char *dst, const char *src, size_t size)
 		i++;
 	while (src[j] != 0)
 		j++;
-	if (size <= i || size == 0)
+	if (size == 0 || (size < i && i != 0))
 		res = j + size;
 	else
 		res = i + j;
 	ft_concat(dst, src, size, res);
 	return (res);
+}
 */

@@ -34,7 +34,7 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 		{
 			dst1[i] = src1[i];
 			dst = (void *)dst1;
-			return (&dst[i + 1]);
+			return (dst + i + 1);
 		}
 	}
 	return (NULL);

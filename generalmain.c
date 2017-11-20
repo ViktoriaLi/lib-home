@@ -14,32 +14,62 @@
 #include "libft.h"
 #include <ctype.h>
 
-void    ft_putchar(char c);
-void    ft_putstr(char const *s);
-void    ft_putnbr(int n);
-void    ft_putendl(char const *s);
-void    ft_striter(char *s, void (*f)(char *));
-void    ft_strclr(char *s);
-int     ft_strequ(char const *s1, char const *s2);
-int     ft_strnequ(char const *s1, char const *s2, size_t n);
+void    *ft_memset(void *b, int c, size_t len);
+void    ft_bzero(void *s, size_t n);
+void    *ft_memcpy(void *dest, const void *src, size_t n);
+void    *ft_memccpy(void *dst, const void *src, int c, size_t n);
+void    *ft_memmove(void *dst, const void *src, size_t len);
+void    *ft_memchr(const void *s, int c, size_t n);
+int     ft_memcmp(const void *s1, const void *s2, size_t n);
+size_t  ft_strlen(const char *s);
+char    *ft_strdup(const char *s1);
+char    *ft_strcpy(char *dst, const char *src);
+char    *ft_strncpy(char *dst, const char *src, size_t len);
+char    *ft_strcat(char *s1, const char *s2);
+char    *ft_strncat(char *s1, const char *s2, size_t n);
+size_t  ft_strlcat(char *dst, const char *src, size_t size);
+char    *ft_strchr(const char *s, int c);
+char    *ft_strrchr(const char *s, int c);
+char    *ft_strstr(const char *big, const char *little);
+char    *ft_strnstr(const char *big, const char *little, size_t len);
+int     ft_strcmp(const char *s1, const char *s2);
+int     ft_strncmp(const char *s1, const char *s2, size_t n);
+int     ft_atoi(const char *str);
+int     ft_isalpha(int c);
+int     ft_isdigit(int c);
+int     ft_isalnum(int c);
+int     ft_isascii(int c);
+int     ft_isprint(int c);
+int     ft_toupper(int c);
+int     ft_tolower(int c);
 void    *ft_memalloc(size_t size);
 void    ft_memdel(void **ap);
 char    *ft_strnew(size_t size);
 void    ft_strdel(char **as);
+void    ft_strclr(char *s);
+void    ft_striter(char *s, void (*f)(char *));
 void    ft_striteri(char *s, void (*f)(unsigned int, char *));
 char    *ft_strmap(char const *s, char (*f)(char));
 char    *ft_strmapi(char const *s, char (*f)(unsigned int, char));
+int     ft_strequ(char const *s1, char const *s2);
+int     ft_strnequ(char const *s1, char const *s2, size_t n);
 char    *ft_strsub(char const *s, unsigned int start, size_t len);
 char    *ft_strjoin(char const *s1, char const *s2);
 char    *ft_strtrim(char const *s);
 char    **ft_strsplit(char const *s, char c);
 char    *ft_itoa(int n);
+void    ft_putchar(char c);
+void    ft_putstr(char const *s);
+void    ft_putendl(char const *s);
+void    ft_putnbr(int n);
 void    ft_putchar_fd(char c, int fd);
-void    ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
-
+void    ft_putstr_fd(char const *s, int fd);
+void    ft_putendl_fd(char const *s, int fd);
+void    ft_putnbr_fd(int n, int fd);
 t_list  *ft_lstnew(void const *content, size_t content_size);
-void    ft_lstadd(t_list **alst, t_list *new);
 void    ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+void    ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+void    ft_lstadd(t_list **alst, t_list *new);
 void    ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list  *ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
@@ -221,9 +251,11 @@ int main(void)
     printf("%s%s", "Original string is ", src24);
     printf("%s%s", "\nFind 9 in first 5 bytes ", memchr(src24, '9', 5));
     printf("%s%s", "\nFind 9 in first 10 bytes ", memchr(src24, '9', 10));
+    printf("%s%s", "\nFind 9 in first 10 bytes ", memchr("abcdef", 999, 6));
     printf("%s%s", "\n\nCustom MEMCHR output\nOriginal string is ", src24);
     printf("%s%s", "\nFind 9 in first 5 bytes ", ft_memchr(src24, '9', 5));
-    printf("%s%s\n\n", "\nFind 9 in first 10 bytes ", ft_memchr(src24,'9', 10));
+    printf("%s%s", "\nFind 9 in first 10 bytes ", ft_memchr(src24,'9', 10));
+    printf("%s%s\n\n", "\nFind 9 in first 10 bytes ", ft_memchr("abcdef", 999, 6));
 
     printf("%s", "MEMCMP FUNCTION\n\nOriginal MEMCMP output\n");
     printf("%s%d\n", "If strings are the same result is ", memcmp("hello", "hello", 3));
@@ -297,7 +329,7 @@ int main(void)
 	printf("%s%s\n\n", "If len longer than s2 dest string is ", ft_strncat(src15, dest16, 10));
 
 	printf("%s", "STRLCAT FUNCTION\nORIGINAL STRLCAT output");
-    char dst19[20];
+    //char dst19[20];
     printf("%s%lu\n", "\nIf len is 5 and less than dest result is ", strlcat("1234567890", "567890", 5));
     printf("%s%lu\n", "\nIf len is 5 and longer than dest result is ", strlcat("567890", "1234567890", 5));
     printf("%s%lu\n", "\nIf len is 10 and equal with dest result is ", strlcat("1234567890", "567890", 10));
@@ -305,16 +337,31 @@ int main(void)
     printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat("567890", "1234567890", 3));
     printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat("1234567890", "567890", 0));
     printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat("567890", "1234567890", 0));
-    //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat("", "thx to ntoniolo for this test !", 4));
-    //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat("there is no stars in the sky", "the cake is a lie !\0I'm hidden lol\r\n", 0));
-    //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat(dst19, "aaa", 20));
-    char dst20[20];
-    printf("%s%lu\n", "\nIf len is 5 and less than dest result is ", ft_strlcat("1234567890", "567890", 5));
+    char dst42[10];
+    bzero(dst42, 10);
+    strcpy(dst42, "abc");
+    printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat(dst42, "abcdefghijklmnop", 10));
+    printf("%s%d\n", "\nIf len is 3 and less than dest result is ", strcmp(dst42, "abcabcdef"));
+    printf("%s%s\n", "Result of strlcat calling: ", dst42);
+    printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat(dst42, "abcd", 2));
+    printf("%s%s\n", "Result of strlcat calling: ", dst42);
+    printf("\n\n%s\n", "CUSTOM STRLCAT output");
+    //char dst20[20];
+    /*printf("%s%lu\n", "\nIf len is 5 and less than dest result is ", ft_strlcat("1234567890", "567890", 5));
     printf("%s%lu\n", "\nIf len is 5 and longer than dest result is ", ft_strlcat("567890", "1234567890", 5));
     printf("%s%lu\n", "\nIf len is 10 and equal with dest result is ", ft_strlcat("1234567890", "567890", 10));
     printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat("1234567890", "567890", 3));
     printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat("567890", "1234567890", 3));
     printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat("1234567890", "567890", 0));
+    printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat("567890", "1234567890", 0));
+    char dst43[10];
+    bzero(dst43, 10);
+    strcpy(dst43, "abc");
+    printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat(dst43, "abcdefghijklmnop", 10));
+    printf("%s%d\n", "\nIf len is 3 and less than dest result is ", strcmp(dst43, "abcabcdef"));
+    printf("%s%s\n", "Result of strlcat calling: ", dst43);
+    printf("%s%lu\n\n", "\nIf len is 3 and less than dest result is ", ft_strlcat(dst43, "abcd", 2));
+    printf("%s%s\n", "Result of strlcat calling: ", dst43);
     //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat("", "thx to ntoniolo for this test !", 4));
     //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat("there is no stars in the sky", "the cake is a lie !\0I'm hidden lol\r\n", 0));
     //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat(dst20, "aaa", 20));
@@ -618,7 +665,7 @@ int main(void)
     src38 = "Hello";
     printf("%s%s", "Original string is ", src38);
     ft_strdel(&src38);
-    printf("%s%d", "String after free calling is ", (int)src38);*/
+    printf("%s%d", "String after free calling is ", (int)src38);
 
     printf("%s", "\n\nFT_STRSPLIT FUNCTION\n");
     int i_spl = 0;
@@ -653,7 +700,7 @@ int main(void)
         i++;
     printf("%d", i);
     
-    /*printf("%s", "\n\nFT_ITOA FUNCTION\n");
+    printf("%s", "\n\nFT_ITOA FUNCTION\n");
     printf("%s%d\n", "Original number is ", 0);
     printf("%s%s\n", "Result of itoa is ", ft_itoa(0));
     printf("%s%d\n", "Original number is ", 5);

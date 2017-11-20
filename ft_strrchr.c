@@ -20,9 +20,11 @@ char	*ft_strrchr(const char *s, int c)
 
 	j = 0;
 	len = 0;
-	res = 0;
+	if (c < 0 || c > 127)
+		return (NULL);
 	while (s[len] != 0)
 		len++;
+	res = -1;
 	if (c == 0)
 		return (char*)(&s[len]);
 	while (j < len)
@@ -31,7 +33,7 @@ char	*ft_strrchr(const char *s, int c)
 			res = j;
 		j++;
 	}
-	if (res != 0)
+	if (res != -1)
 		return (char*)(&s[res]);
 	return (NULL);
 }

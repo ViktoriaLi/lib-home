@@ -58,7 +58,7 @@ size_t		ft_strlcat(char *dst, const char *src, size_t size)
 		i++;
 	while (src[j] != 0)
 		j++;
-	if (size <= i || size == 0)
+	if (size <= i /*|| size == 0*/)
 		res = j + size;
 	else
 		res = i + j;

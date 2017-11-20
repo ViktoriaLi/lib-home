@@ -253,11 +253,13 @@ int main(void)
     printf("%s%s", "\nFind 9 in first 10 bytes ", memchr(src24, '9', 10));
     printf("%s%s", "\nFind 9 in first 10 bytes ", memchr("abcdef", 999, 6));
     printf("%s%d", "\nFind 9 in first 10 bytes ", (int)memchr("abcdef", 999, 6));
+    printf("%s%s", "\nFind 9 in first 10 bytes ", memchr("abcdef", 47, 0));
     printf("%s%s", "\n\nCustom MEMCHR output\nOriginal string is ", src24);
     printf("%s%s", "\nFind 9 in first 5 bytes ", ft_memchr(src24, '9', 5));
     printf("%s%s", "\nFind 9 in first 10 bytes ", ft_memchr(src24,'9', 10));
     printf("%s%s\n\n", "\nFind 9 in first 10 bytes ", ft_memchr("abcdef", 999, 6));
     printf("%s%d\n\n", "\nFind 9 in first 10 bytes ", (int)ft_memchr("abcdef", 999, 6));
+    printf("%s%s\n\n", "\nFind 9 in first 10 bytes ", ft_memchr("abcdef", 47, 0));
     //printf("\n%d\n", );
 
     printf("%s", "MEMCMP FUNCTION\n\nOriginal MEMCMP output\n");
@@ -329,22 +331,21 @@ int main(void)
 	printf("%s%s\n", "\nIf len less than s2 dest string is ", ft_strncat(src14, dest15, 3));
 	char src15[20] = "Hello, ";
     char dest16[10] = "World";
-	printf("%s%s\n\n", "If len longer than s2 dest string is ", ft_strncat(src15, dest16, 10));*/
-
+	printf("%s%s\n\n", "If len longer than s2 dest string is ", ft_strncat(src15, dest16, 10m
 	printf("%s", "STRLCAT FUNCTION\nORIGINAL STRLCAT output");
     //char dst19[20];
-    /*printf("%s%lu\n", "\nIf len is 5 and less than dest result is ", strlcat("1234567890", "567890", 5));
+    printf("%s%lu\n", "\nIf len is 5 and less than dest result is ", strlcat("1234567890", "567890", 5));
     printf("%s%lu\n", "\nIf len is 5 and longer than dest result is ", strlcat("567890", "1234567890", 5));
     printf("%s%lu\n", "\nIf len is 10 and equal with dest result is ", strlcat("1234567890", "567890", 10));
     printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat("1234567890", "567890", 3));
     printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat("567890", "1234567890", 3));
     printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat("1234567890", "567890", 0));
-    printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat("567890", "1234567890", 0));*/
+    printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat("567890", "1234567890", 0));
     char dst42[10];
     bzero(dst42, 10);
     strcpy(dst42, "abc");
     printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat(dst42, "abcdefghijklmnop", 10));
-    printf("%s%d\n", "\nIf len is 3 and less than dest result is ", strcmp(dst42, "abcabcdef"));
+    printf("%s%d\n", "\nSTRCMP", strcmp(dst42, "abcabcdef"));
     printf("%s%s\n", "Result of strlcat calling: ", dst42);
     printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat(dst42, "abcd", 2));
     printf("%s%s\n", "Result of strlcat calling: ", dst42);
@@ -362,18 +363,18 @@ int main(void)
 
     printf("\n\n%s\n", "CUSTOM STRLCAT output");
     //char dst20[20];
-    /*printf("%s%lu\n", "\nIf len is 5 and less than dest result is ", ft_strlcat("1234567890", "567890", 5));
+    rintf("%s%lu\n", "\nIf len is 5 and less than dest result is ", ft_strlcat("1234567890", "567890", 5));
     printf("%s%lu\n", "\nIf len is 5 and longer than dest result is ", ft_strlcat("567890", "1234567890", 5));
     printf("%s%lu\n", "\nIf len is 10 and equal with dest result is ", ft_strlcat("1234567890", "567890", 10));
     printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat("1234567890", "567890", 3));
     printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat("567890", "1234567890", 3));
     printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat("1234567890", "567890", 0));
-    printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat("567890", "1234567890", 0));*/
+    printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat("567890", "1234567890", 0));
     char dst43[10];
     bzero(dst43, 10);
     strcpy(dst43, "abc");
     printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat(dst43, "abcdefghijklmnop", 10));
-    printf("%s%d\n", "\nIf len is 3 and less than dest result is ", strcmp(dst43, "abcabcdef"));
+    printf("%s%d\n", "\nnSTRCMP", strcmp(dst43, "abcabcdef"));
     printf("%s%s\n", "Result of strlcat calling: ", dst43);
     printf("%s%lu\n\n", "\nIf len is 3 and less than dest result is ", ft_strlcat(dst43, "abcd", 2));
     printf("%s%s\n", "Result of strlcat calling: ", dst43);
@@ -394,7 +395,7 @@ int main(void)
     //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat(dst20, "aaa", 20));
 
 
-	/*printf("%s", "STRCHR FUNCTION\n\nORIGINAL strchr output\n");
+	printf("%s", "STRCHR FUNCTION\n\nORIGINAL strchr output\n");
 	char src20[] = "1234567890sfdsgfhfghgfh";
 	printf("%s%s\n", "Original string is ", src20);
 	printf("%s%s\n", "4 symbol found ", strchr(src20, '4'));
@@ -439,7 +440,7 @@ int main(void)
     printf("%s%s", "String not found ", ft_strstr("", dest34));
     printf("\n%s%s", "String 2 has 0 length ", ft_strstr(src34, ""));
     printf("%s%s", "String partially found ", ft_strstr("MZIRIBMZIRIBMZP", "MZIRIBMZP"));
-    printf("%s%s", "String partially found ", ft_strstr("aaabbbaaabbb", "abbaaab"));
+    printf("%s%s", "String partially found ", ft_strstr("aaabbbaaabbb", "abbaaab"));*/
 
     printf("%s", "STRNSTR FUNCTION\nORIGINAL strnstr output\n");
     char src35[] = "1234567890";
@@ -449,6 +450,7 @@ int main(void)
     printf("%s%s", "String not found ", strnstr(src35, "dfgd", 3));
     printf("\n%s%s", "String 2 has 0 length ", strnstr(src35, "", 3));
     printf("%s%s", "String partially found ", strnstr("MZIRIBMZIRIBMZE123", "MZIRIBMZE", 9));
+    printf("%s%s", "String partially found ", strnstr("Hello les genw", "Hello", 3));
     char src36[] = "1234567890";
     char dest36[] = "34567";
     printf("\n\n%s\n", "CUSTOM strnstr output");
@@ -456,8 +458,9 @@ int main(void)
     printf("%s%s", "String not found ", ft_strnstr(src36, "dfgd", 3));
     printf("\n%s%s", "String 2 has 0 length ", ft_strnstr(src36 , "", 3));
     printf("%s%s", "String partially found ", ft_strnstr("MZIRIBMZIRIBMZE123", "MZIRIBMZE", 9));
+    printf("%s%s", "String partially found ", ft_strnstr("Hello les genw", "Hello", 3));
 
-    printf("%s", "STRCMP FUNCTION\n\nORIGINAL STRCMP output\n");
+    /*printf("%s", "STRCMP FUNCTION\n\nORIGINAL STRCMP output\n");
     printf("%s%d\n", "If strings are the same result is ", strcmp("hello", "hello"));
     printf("%s%d\n", "If first string shorter result is ", strcmp("hell", "hello"));
     printf("%s%d\n", "If first string longer result is ", strcmp("hello", "hell"));

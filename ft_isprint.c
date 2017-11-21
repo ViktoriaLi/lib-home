@@ -12,7 +12,7 @@
 
 int		ft_isprint(int c)
 {
-	if (c >= 0x20 && c <= 0x7E)
+	if (c > 31 && c < 127)
 		return (1);
 	else
 		return (0);

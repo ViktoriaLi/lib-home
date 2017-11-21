@@ -22,7 +22,7 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 		dst[i] = src[i];
 		i++;
 	}
-	if (src[i] == 0 && i < len)
+	if (i < len && src[i] == 0)
 	{
 		while (i < len)
 		{

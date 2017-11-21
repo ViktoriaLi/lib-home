@@ -18,6 +18,29 @@ size_t		ft_strlcat(char *dst, const char *src, size_t size)
 	size_t i;
 	size_t j;
 	size_t k;
+	
+	k = 0;
+	i = 0;
+	j = ft_strlen(src);
+	if (size <= ft_strlen(dst))
+		return (j + size);
+	while (dst[i] != 0 && i < size - 1)
+		i++;
+	j += i;
+	while (src[k] != 0 && i < size - 1)
+		{
+			dst[i] = src[k];
+			i++;
+			k++;
+		}
+	dst[i] = 0;
+	return (j);
+}
+/*size_t		ft_strlcat(char *dst, const char *src, size_t size)
+{
+	size_t i;
+	size_t j;
+	size_t k;
 	size_t res;
 
 	i = 0;
@@ -30,12 +53,12 @@ size_t		ft_strlcat(char *dst, const char *src, size_t size)
 	if (size <= j)
 		return (j + size);
 	res = i + j;
-	/*if (size < i))
+	if (size < i))
 		while (dst[i] != 0)
 		{
 			dst[i + k] = src[k];
 			k++;
-		}*/
+		}
 	if (j < size - i)
 	{
 		while (src[k] != 0 && i < size)
@@ -52,7 +75,7 @@ size_t		ft_strlcat(char *dst, const char *src, size_t size)
 			k++;
 		}
 	}
-	/*if (j < size - i)
+	if (j < size - i)
 	{
 		while ( k < j)
 		{
@@ -67,17 +90,17 @@ size_t		ft_strlcat(char *dst, const char *src, size_t size)
 			dst[i + k] = src[k];
 			k++;
 		}
-	}*/
-	/*
+	}
+	
 	if (j > size)
 		
 	if (size >= j)
 	{
 		
-	}*/
+	}
 	dst[i + k] = 0;
 	return (res);
-}
+}*/
 
 
 

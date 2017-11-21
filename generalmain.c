@@ -163,7 +163,7 @@ t_list *test_lstmap(t_list *elem)
 
 int main(void)
 {
-    /*printf("%s", "LIBRARY FUNCTIONS\n\n");
+    printf("%s", "LIBRARY FUNCTIONS\n\n");
 
 	printf("%s", "MEMSET FUNCTION\n\n");
 	unsigned char src[] = "1234567890dfsfdgfdgfghf";
@@ -173,6 +173,8 @@ int main(void)
 	printf("%s%s\n", "Set symbol 2 to 5 bytes ", memset(src, '2', 5));
 	printf("%s%s\n", "Set symbol 3 to 1 byte ", memset(src, '3', 1));
 	printf("%s%s\n", "Set 0 to 1 bytes ", memset(src, 0, 1));
+    printf("%s%d\n", "Set symbol 3 to 1 byte ", (int)memset(src, '3', 0));
+    printf("%s%s\n", "Set symbol 3 to 1 byte ", memset(src, 999, 5));
 	printf("%s", "\nCustom MEMSET output\n");
 	unsigned char src1[] = "1234567890dfsfdgfdgfghf";
 	printf("%s\n", src1);
@@ -180,8 +182,10 @@ int main(void)
 	printf("%s%s\n", "Set symbol 2 to 5 bytes ", ft_memset(src1, '2', 5));
 	printf("%s%s\n", "Set symbol 3 to 1 byte ", ft_memset(src1, '3', 1));
 	printf("%s%s\n\n", "Set 0 to 1 bytes ", ft_memset(src1, 0, 1));
+    printf("%s%s\n", "Set symbol 3 to 1 byte ", ft_memset(src, '3', 0));
+    printf("%s%s\n", "Set symbol 3 to 1 byte ", ft_memset(src, 999, 5));
 
-	printf("%s", "BZERO FUNCTION\n\n");
+	/*printf("%s", "BZERO FUNCTION\n\n");
 	int src25[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 	printf("%s", "Original BZERO output\n");
 	printf("%s%d\n", "Original string is ", *src25);
@@ -330,18 +334,18 @@ int main(void)
 	printf("%s%s\n", "\nIf len less than s2 dest string is ", ft_strncat(src14, dest15, 3));
 	char src15[20] = "Hello, ";
     char dest16[10] = "World";
-	printf("%s%s\n\n", "If len longer than s2 dest string is ", ft_strncat(src15, dest16, 10));*/
+	printf("%s%s\n\n", "If len longer than s2 dest string is ", ft_strncat(src15, dest16, 10));
 
 
 	printf("%s", "STRLCAT FUNCTION\nORIGINAL STRLCAT output");
-    //char dst19[20];
-    /*printf("%s%lu\n", "\nIf len is 5 and less than dest result is ", strlcat("1234567890", "567890", 5));
+    char dst19[20];
+    printf("%s%lu\n", "\nIf len is 5 and less than dest result is ", strlcat("1234567890", "567890", 5));
     printf("%s%lu\n", "\nIf len is 5 and longer than dest result is ", strlcat("567890", "1234567890", 5));
     printf("%s%lu\n", "\nIf len is 10 and equal with dest result is ", strlcat("1234567890", "567890", 10));
     printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat("1234567890", "567890", 3));
     printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat("567890", "1234567890", 3));
     printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat("1234567890", "567890", 0));
-    printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat("567890", "1234567890", 0));*/
+    printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat("567890", "1234567890", 0));
     char dst42[10];
     bzero(dst42, 10);
     strcpy(dst42, "abc");
@@ -366,13 +370,13 @@ int main(void)
     //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat("there is no stars in the sky", "the cake is a lie !\0I'm hidden lol\r\n", 0));
     printf("\n\n%s\n", "CUSTOM STRLCAT output");
     //char dst20[20];
-    /*printf("%s%lu\n", "\nIf len is 5 and less than dest result is ", ft_strlcat("1234567890", "567890", 5));
+    printf("%s%lu\n", "\nIf len is 5 and less than dest result is ", ft_strlcat("1234567890", "567890", 5));
     printf("%s%lu\n", "\nIf len is 5 and longer than dest result is ", ft_strlcat("567890", "1234567890", 5));
     printf("%s%lu\n", "\nIf len is 10 and equal with dest result is ", ft_strlcat("1234567890", "567890", 10));
     printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat("1234567890", "567890", 3));
     printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat("567890", "1234567890", 3));
     printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat("1234567890", "567890", 0));
-    printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat("567890", "1234567890", 0));*/ 
+    printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat("567890", "1234567890", 0)); 
     char dst43[10];
     bzero(dst43, 10);
     strcpy(dst43, "abc");
@@ -399,7 +403,7 @@ int main(void)
     //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat(dst20, "aaa", 20));
 
 
-	/*printf("%s", "STRCHR FUNCTION\n\nORIGINAL strchr output\n");
+	printf("%s", "STRCHR FUNCTION\n\nORIGINAL strchr output\n");
 	char src20[] = "1234567890sfdsgfhfghgfh";
 	printf("%s%s\n", "Original string is ", src20);
 	printf("%s%s\n", "4 symbol found ", strchr(src20, '4'));

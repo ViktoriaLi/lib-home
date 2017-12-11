@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   hash.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlikhotk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/16 16:00:01 by vlikhotk          #+#    #+#             */
-/*   Updated: 2017/11/16 16:00:04 by vlikhotk         ###   ########.fr       */
+/*   Created: 2017/12/11 18:36:04 by vlikhotk          #+#    #+#             */
+/*   Updated: 2017/12/11 18:36:34 by vlikhotk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_lstadd(t_list **alst, t_list *new)
+int	hash(unsigned char *string, int length, int table_size)
 {
-	if (new && alst && *alst)
-		new->next = *alst;
-	*alst = new;
+	int i;
+
+	i = 0;
+	if (length == 2)
+		while (length--)
+		{
+			i = i + (int)string[length] * 17;
+		}
+	else
+		while (length--)
+		{
+			i = i + ((int)string[length] * length);
+		}
+	i = i % table_size;
+	return (i);
 }

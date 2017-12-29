@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	to_multi_arr(char *buf, char ****multi_arr, int strings, int symbols)
+int	to_multi_arr(char *buf, char ****mult_ar, int strs, int symbs)
 {
 	int i;
 	int j;
@@ -22,12 +22,12 @@ int	to_multi_arr(char *buf, char ****multi_arr, int strings, int symbols)
 	while (buf[l] != 0)
 	{
 		j = 0;
-		while (j < strings)
+		while (j < strs)
 		{
 			k = 0;
-			while (k < symbols)
+			while (k < symbs)
 			{
-				(*multi_arr)[i][j][k] = buf[l++];
+				(*mult_ar)[i][j][k] = buf[l++];
 				k++;
 			}
 			l++;

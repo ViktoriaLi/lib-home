@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   two_dim_arr_mem.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlikhotk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 13:06:57 by vlikhotk          #+#    #+#             */
-/*   Updated: 2017/11/08 13:07:00 by vlikhotk         ###   ########.fr       */
+/*   Created: 2017/12/12 16:23:14 by vlikhotk          #+#    #+#             */
+/*   Updated: 2017/12/12 16:23:41 by vlikhotk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+char	**two_dim_arr_mem(char **field, int numb, char c)
 {
-	size_t	i;
-	char	*dest;
+	int i;
+	int j;
 
 	i = 0;
-	if (!s)
-		return (NULL);
-	if (s[start] == 0 || !(dest = (char *)malloc(sizeof(char) * (len + 1))))
-		return (NULL);
-	if (len != 0)
+	field = (char **)malloc(sizeof(char *) * numb);
+	while (i < numb)
 	{
-		while (i < len)
-		{
-			dest[i] = (char)s[start];
-			i++;
-			start++;
-		}
-		dest[i] = 0;
+		field[i] = (char *)malloc(numb);
+		i++;
 	}
-	return (dest);
+	i = 0;
+	while (i < numb)
+	{
+		j = 0;
+		while (j < numb)
+		{
+			field[i][j] = c;
+			j++;
+		}
+		i++;
+	}
+	return (field);
 }

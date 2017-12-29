@@ -22,9 +22,7 @@ int	hash(unsigned char *string, int length, int table_size)
 		}
 	else
 		while (length--)
-		{
 			i = i + ((int)string[length] * length);
-		}
 	i = i % table_size;
 	return (i);
 }

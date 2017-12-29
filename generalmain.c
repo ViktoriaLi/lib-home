@@ -87,7 +87,7 @@ void    test_ft_putstr(char *s)
 
 void test_striteri(unsigned int j, char *s1)
 {
-    int i;
+    unsigned int i;
 
     i = 0;
     while (i < j)
@@ -109,20 +109,24 @@ char test_strmapi(unsigned int i, char c2)
     return (c2);
 }
 
-void del(void *del_str, size_t del_size)
+void	print_test_name(char *name)
 {
- 
+    printf(" =================\\\\ [%s]\n", name);
+}
+
+/*void del(void *del_str, size_t del_size)
+{
+
     if (del_str)
     {
         free(del_str);
         del_str = NULL;
     }
-}
+}*/
 
 t_list  *test_lstnew(t_list *list, void const *content, size_t content_size)
 {
     t_list *new_list;
-    //new_list = NULL;
 
     new_list = malloc(sizeof(t_list));
     if (new_list && content)
@@ -141,7 +145,6 @@ t_list  *test_lstnew(t_list *list, void const *content, size_t content_size)
     {
         new_list->content = NULL;
         new_list->content_size = 0;
-        //list.next = NULL;
     }
     return (NULL);
 }
@@ -149,6 +152,7 @@ t_list  *test_lstnew(t_list *list, void const *content, size_t content_size)
 void test_lstiter(t_list *elem)
 {
     t_list *tmp4;
+    tmp4 = NULL;
     tmp4 = test_lstnew(tmp4, "Result", 10);
     elem = tmp4;
 }
@@ -156,6 +160,7 @@ void test_lstiter(t_list *elem)
 t_list *test_lstmap(t_list *elem)
 {
     t_list *tmp6;
+    tmp6 = NULL;
     tmp6 = test_lstnew(tmp6, "Result", 10);
     elem = tmp6;
     return (elem);
@@ -163,16 +168,15 @@ t_list *test_lstmap(t_list *elem)
 
 int main(void)
 {
-    /*printf("%s", "LIBRARY FUNCTIONS\n\n");
+    printf("%s", "LIBRARY FUNCTIONS\n\n");
 
-	printf("%s", "MEMSET FUNCTION\n\n");
+	/*printf("%s", "MEMSET FUNCTION\n\n");
 	unsigned char src[] = "1234567890dfsfdgfdgfghf";
 	printf("%s", "Original MEMSET output\n");
 	printf("%s%s\n", "Original string is ", src);
 	printf("%s%s\n", "Set symbol 1 to 10 bytes ", memset(src, '1', 10));
 	printf("%s%s\n", "Set symbol 2 to 5 bytes ", memset(src, '2', 5));
 	printf("%s%s\n", "Set symbol 3 to 1 byte ", memset(src, '3', 1));
-	printf("%s%s\n", "Set 0 to 1 bytes ", memset(src, 0, 1));
     printf("%s%d\n", "If len is 0 pointer adress should be: ", (int)memset(src, '3', 0));
     printf("%s%s\n", "If char has non asii code: ", memset(src, 999, 5));
 	printf("%s", "\nCustom MEMSET output\n");
@@ -181,7 +185,6 @@ int main(void)
     printf("%s%s\n", "Set symbol 1 to 10 bytes ", ft_memset(src1, '1', 10));
 	printf("%s%s\n", "Set symbol 2 to 5 bytes ", ft_memset(src1, '2', 5));
 	printf("%s%s\n", "Set symbol 3 to 1 byte ", ft_memset(src1, '3', 1));
-	printf("%s%s\n", "Set 0 to 1 bytes ", ft_memset(src1, 0, 1));
     printf("%s%d\n", "If len is 0 pointer adress should be: ", (int)ft_memset(src, '3', 0));
     printf("%s%s\n\n", "If char has non asii code: ", ft_memset(src, 999, 5));
 
@@ -197,7 +200,7 @@ int main(void)
 	printf("%s%d\n", "bzero with 8 bytes ", *(src25 + 2));
 	bzero(src25, 16);
 	printf("%s%d\n", "bzero with 16 bytes ", *(src25 + 3));
-    	printf("%s", "\nCustom BZERO output\n");
+    printf("%s", "\nCustom BZERO output\n");
 	int src26[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 	printf("%s%d\n", "Original string is ", *src26);
     ft_bzero(src26, 0);
@@ -208,7 +211,6 @@ int main(void)
 	printf("%s%d\n", "bzero with 8 bytes ", *(src26 + 2));
 	ft_bzero(src26, 16);
 	printf("%s%d\n\n", "bzero with 16 bytes ", *(src26 + 3));
-    
 
 	unsigned char src2[] = "Hello";
 	unsigned char dest2[] = "ABCD";
@@ -221,7 +223,6 @@ int main(void)
     unsigned char dest3[] = "ABCD";
 	printf("%s%s\n", "0 bytes: ", ft_memcpy(dest3, src3, 0));
     printf("%s%s\n\n", "2 bytes: ", ft_memcpy(dest3, src3, 2));
-
 
 	char src27[] = "1234567890";
     char dest4[10];
@@ -247,7 +248,6 @@ int main(void)
     printf("%s%s", "\nDestination string if c is non ascii is ", dest5);
     printf("%s%d", "\nReturned value is ", (int)ft_memccpy(dest5, src4, 30, 0));
     printf("%s%s\n\n", "\nDestination string with size is 0: ", dest5);
-    
 
     printf("%s", "MEMMOVE FUNCTION\n\nOriginal MEMMOVE output\n");
     char src22[] = "1234567890";
@@ -260,7 +260,7 @@ int main(void)
     printf("%s%s", "\nDestination string with 0 bytes from src 1 to dest 5", (char *)memmove(&dest22[1], &src22[5], 0));
     char src23[] = "1234567890";
     char dest23[] = "abcdefghijk";
-    printf("%s%s", "\n\nsCustom MEMMOVE output\nSRC string is ", dest23);
+    printf("%s%s", "\n\nCustom MEMMOVE output\nSRC string is ", dest23);
     printf("%s%s", "\nDestination string with 3 bytes from src 1 to dest 5", (char *)ft_memmove(&dest23[1], &src23[5], 3));
     printf("%s%s", "\nDestination string with 3 bytes from src 5 to dest 1", (char *)ft_memmove(&dest23[5], &src23[1], 3));
     printf("%s%s", "\nDestination string with 7 bytes from src 1 to dest 5", (char *)ft_memmove(&dest23[1], &src23[5], 7));
@@ -280,7 +280,7 @@ int main(void)
     printf("%s%s", "\nFind 9 in first 10 bytes ", ft_memchr(src24,'9', 10));
     printf("%s%s", "\nFind non ascii in first 6 bytes ", ft_memchr("abcdef", 999, 6));
     printf("%s%d", "\nFind non ascii in first 6 bytes ", (int)ft_memchr("abcdef", 999, 6));
-    printf("%s%s\n\n", "\nFind c in first 0 bytes ", ft_memchr("abcdef", 47, 0));
+    printf("%s%s\n\n", "\nFind c in first 0 bytes ", ft_memchr("abcdef", 47, 0));*/
 
     printf("%s", "MEMCMP FUNCTION\n\nOriginal MEMCMP output\n");
     printf("%s%d\n", "If strings are the same result is ", memcmp("hello", "hello", 3));
@@ -291,6 +291,7 @@ int main(void)
     printf("%s%d\n", "If len is 0: ", memcmp("hello", "hello", 0));
     printf("%s%d\n", "If first string is empty: ", memcmp("", "aello", 3));
     printf("%s%d\n", "If second string is empty: ", memcmp("aello", "", 3));
+    printf("%s%d\n", "If second string is empty: ", memcmp("\0", "\0", 25));
     printf("\n%s\n", "CUSTOM MEMCMP output");
     printf("%s%d\n", "If strings are the same result is ", ft_memcmp("hello", "hello", 3));
     printf("%s%d\n", "If first string shorter result is ", ft_memcmp("hell", "hello", 5));
@@ -300,21 +301,28 @@ int main(void)
     printf("%s%d\n", "If len is 0: ", ft_memcmp("hello", "hello", 0));
     printf("%s%d\n", "If first string is empty: ", ft_memcmp("", "aello", 3));
     printf("%s%d\n\n", "If second string is empty: ", ft_memcmp("aello", "", 3));
+    printf("%s%d\n", "If second string is empty: ", ft_memcmp("\0", "\0", 25));
+    char testmemcmp1[] = "\0";
+    char testmemcmp2[] = "\0";
+    if (ft_memcmp(testmemcmp1, testmemcmp2, 25) == memcmp(testmemcmp1, testmemcmp2, 25))
+        ft_putstr("char     *ft_memcmp   -> test2:   OK\n");
+    else
+        ft_putstr("char     *ft_memcmp   -> test2:     KO\n");
 
-	printf("%s", "STRLEN FUNCTION\n\nORIGINAL STRLEN output");
+	/*printf("%s", "STRLEN FUNCTION\n\nORIGINAL STRLEN output");
 	printf("%s%lu", "\nThe length of \"Hello\" is ", strlen("Hello"));
 	printf("%s%lu", "\nThe length of empty string is is ", strlen(""));
 	printf("%s", "\n\nCUSTOM STRLEN output");
     printf("%s%lu", "\nThe length of \"Hello\" is ", ft_strlen("Hello"));
     printf("%s%lu\n\n", "\nThe length of empty string is is ", ft_strlen(""));
-  
+
 	printf("%s", "STRDUP FUNCTION\n\nORIGINAL STRDUP output");
 	printf("%s%s", "\nOutput of \"Hello\" string is ", strdup("Hello"));
     printf("%s%d", "\nOutput of \"\" string is ", (int)strdup(""));
 	printf("%s", "\n\nCUSTOM STRDUP output");
 	printf("%s%s", "\nOutput of \"Hello\" string is ", ft_strdup("Hello"));
     printf("%s%d\n\n", "\nOutput of \"\" string is ", (int)ft_strdup(""));
-	
+
 	printf("%s", "STRCPY FUNCTION\n\nORIGINAL STRCPY output\n");
 	char src5[] = "123456789";
     char dest6[10];
@@ -325,7 +333,7 @@ int main(void)
     char dest77[10];
     printf("%s%s\n", "Original string is ", src66);
 	printf("%s%s\n\n", "Dest string is ", ft_strcpy(dest77, src66));
-   
+
 	printf("%s", "STRNCPY FUNCTION\n\nORIGINAL STRNCPY output\n");
 	char src6[] = "12345678901";
     char dest7[10];
@@ -345,13 +353,13 @@ int main(void)
 	char src9[20] = "Hello, ";
     char dest10[10] = "World";
 	printf("%s%s\n", "\nDest string is ", strcat(src9, dest10));
-    printf("%s%s\n", "\nDest string is ", strcat(src9, ""));
+    printf("%s%s\n", "Dest string is ", strcat(src9, ""));
 	printf("%s", "\n\nCUSTOM STRCAT output");
     char src10[20] = "Hello, ";
     char dest11[10] = "World";
-	printf("%s%s\n\n", "\nDest string is ", ft_strcat(src10, dest11));
-    printf("%s%s\n\n", "\nDest string is ", ft_strcat(src10, ""));
-	
+	printf("%s%s\n", "\nDest string is ", ft_strcat(src10, dest11));
+    printf("%s%s\n\n", "Dest string is ", ft_strcat(src10, ""));
+
 	printf("%s", "STRNCAT FUNCTION\n\nORIGINAL STRNCAT output");
     char src12[20] = "Hello, ";
     char dest13[10] = "World";
@@ -360,7 +368,7 @@ int main(void)
     char dest14[10] = "World";
 	printf("%s%s\n", "If len longer than s2 dest string is ", strncat(src13, dest14, 10));
     printf("%s%s\n", "If len is 0 ", strncat(src13, dest14, 0));
-    printf("%s%s\n\n", "If source is empty string ", ft_strncat(src13, "", 10));
+    printf("%s%s\n", "If source is empty string ", ft_strncat(src13, "", 10));
   	printf("%s", "\nCUSTOM STRNCAT output");
     char src14[20] = "Hello, ";
     char dest15[10] = "World";
@@ -369,68 +377,26 @@ int main(void)
     char dest16[10] = "World";
 	printf("%s%s\n", "If len longer than s2 dest string is ", ft_strncat(src15, dest16, 10));
     printf("%s%s\n", "If len is 0 ", ft_strncat(src15, dest16, 0));
-    printf("%s%s\n\n", "If source is empty string ", ft_strncat(src15, "", 10));*/
+    printf("%s%s\n\n", "If source is empty string ", ft_strncat(src15, "", 10));
 
-
-	/*printf("%s", "STRLCAT FUNCTION\nORIGINAL STRLCAT output");
+	printf("%s", "STRLCAT FUNCTION\nORIGINAL STRLCAT output");
     printf("%s%lu\n", "If len is 5 and less than dest result is ", strlcat("1234567890", "567890", 5));
     printf("%s%lu\n", "If len is 10 and equal with dest result is ", strlcat("1234567890", "567890", 10));
     printf("%s%lu\n", "If len is 3 and dest longer source is ", strlcat("1234567890", "567890", 3));
     printf("%s%lu\n", "If len is 3 and source longer dest is ", strlcat("567890", "1234567890", 3));
     printf("%s%lu\n", "If len is 0 and less than dest result is ", strlcat("1234567890", "567890", 0));
     printf("%s%lu\n", "If len is 0 and less than dest result is ", strlcat("567890", "1234567890", 0));
-    printf("%s%lu\n", "If source is empty ", strlcat("1234567890", "", 5));*/
-
-    //char dst42[10];
-    //bzero(dst42, 10);
-    //strcpy(dst42, "abc");
-    //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat(dst42, "abcdefghijklmnop", 10));
-    //printf("%s%d\n", "\nSTRCMP", strcmp(dst42, "abcabcdef"));
-    //printf("%s%s\n", "Result of strlcat calling: ", dst42);
-    //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat(dst42, "abcd", 2));
-    //printf("%s%s\n", "Result of strlcat calling: ", dst42);
-    //char dst44[10];
-    //bzero(dst44, 10);
-    //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat(dst44, "abc", 10));
-    //printf("%s%s\n", "Result of strlcat calling: ", dst44);
-    //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat(dst44, "def", 10));
-    //printf("%s%s\n", "Result of strlcat calling: ", dst44);
-    //char dst47[10];
-    //bzero(dst47, 10);
-    //memset(dst47, 'a', 10);
-    //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", strlcat(dst47, "ccc", 10));
-    //printf("%s%s\n", "Result of strlcat calling: ", dst47);
-    /*printf("\n%s\n", "CUSTOM STRLCAT output");
+    printf("%s%lu\n", "If source is empty ", strlcat("1234567890", "", 5));
+    printf("\n%s\n", "CUSTOM STRLCAT output");
     printf("%s%lu\n", "If len is 5 and less than dest result is ", ft_strlcat("1234567890", "567890", 5));
     printf("%s%lu\n", "If len is 10 and equal with dest result is ", ft_strlcat("1234567890", "567890", 10));
     printf("%s%lu\n", "If len is 3 and dest longer source is ", ft_strlcat("1234567890", "567890", 3));
     printf("%s%lu\n", "If len is 3 and source longer dest is ", ft_strlcat("567890", "1234567890", 3));
     printf("%s%lu\n", "If len is 0 and less than dest result is ", ft_strlcat("1234567890", "567890", 0));
     printf("%s%lu\n", "If len is 0 and less than dest result is ", ft_strlcat("567890", "1234567890", 0));
-    printf("%s%lu\n\n", "If source is empty ", ft_strlcat("1234567890", "", 5));*/
-    //char dst43[10];
-    //bzero(dst43, 10);
-    //strcpy(dst43, "abc");
-    //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat(dst43, "abcdefghijklmnop", 10));
-    //printf("%s%d\n", "\nnSTRCMP", strcmp(dst43, "abcabcdef"));
-    //printf("%s%s\n", "Result of strlcat calling: ", dst43);
-    //printf("%s%lu\n\n", "\nIf len is 3 and less than dest result is ", ft_strlcat(dst43, "abcd", 2));
-    //printf("%s%s\n", "Result of strlcat calling: ", dst43);
-    //char dst45[10];
-    //bzero(dst45, 10);
-    //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat(dst45, "abc", 10));
-    //printf("%s%s\n", "Result of strlcat calling: ", dst45);
-    //printf("%s%zu\n\n", "\nIf len is 3 and less than dest result is ", ft_strlcat(dst45, "def", 10));
-    //printf("%s%s\n", "Result of strlcat calling: ", dst45);
-    //char dst46[10];
-    //bzero(dst46, 10);
-    //memset(dst46, 'a', 10);
-    //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat(dst46, "ccc", 10));
-    //printf("%s%s\n", "Result of strlcat calling: ", dst46);
-    //char *dst48 = "abc\0\0\0";
-    //printf("%s%lu\n", "\nIf len is 3 and less than dest result is ", ft_strlcat(dst48, "ccc", 0));
+    printf("%s%lu\n\n", "If source is empty ", ft_strlcat("1234567890", "", 5));
 
-	/*printf("%s", "STRCHR FUNCTION\n\nORIGINAL strchr output\n");
+	printf("%s", "STRCHR FUNCTION\n\nORIGINAL strchr output\n");
 	char src20[] = "1234567890sfdsgfhfghgfh";
 	printf("%s%s\n", "Original string is ", src20);
 	printf("%s%s\n", "4 symbol found ", strchr(src20, '4'));
@@ -446,33 +412,33 @@ int main(void)
 
 	printf("%s", "STRRCHR FUNCTION\n\nORIGINAL strrchr output\n");
 	char src30[] = "1234567890sfdsgfhfghgfh";
-	printf("%s%s", "Original string is ", src30);
-	printf("%s%s", "f symbol found ", strrchr(src30, 'f'));
-	printf("%s%s", "Symbol not found ", strrchr(src30, 'a'));
+	printf("%s%s\n", "Original string is ", src30);
+	printf("%s%s\n", "f symbol found ", strrchr(src30, 'f'));
+	printf("%s%s\n", "Symbol not found ", strrchr(src30, 'a'));
 	printf("\n%s%d", "Symbol is 0 ", (int)*strrchr(src30, 0));
 	printf("\n\n%s\n", "CUSTOM strrchr output");
-    printf("%s%s", "Original string is ", src30);
-	printf("%s%s", "f symbol found ", ft_strrchr(src30, 'f'));
-	printf("%s%s", "Symbol not found ", ft_strrchr(src30, 'a'));
+    printf("%s%s\n", "Original string is ", src30);
+	printf("%s%s\n", "f symbol found ", ft_strrchr(src30, 'f'));
+	printf("%s%s\n", "Symbol not found ", ft_strrchr(src30, 'a'));
 	printf("\n%s%d\n\n", "Symbol is 0 ", (int)*ft_strrchr(src30, 0));
 
 	printf("%s", "STRSTR FUNCTION\nORIGINAL strstr output\n");
     char src21[] = "1234567890";
     char dest21[] = "34567";
-    printf("%s%s", "Original string is ", src21);
-    printf("%s%s", "We find string ", dest21);
-    printf("%s%s", "String is found ", strstr(src21, dest21));
-    printf("%s%s", "String not found ", strstr(src21, "dfgd"));
-    printf("%s%s", "String is found ", strstr("", dest21));
+    printf("%s%s\n", "Original string is ", src21);
+    printf("%s%s\n", "We find string ", dest21);
+    printf("%s%s\n", "String is found ", strstr(src21, dest21));
+    printf("%s%s\n", "String not found ", strstr(src21, "dfgd"));
+    printf("%s%s\n", "String is found ", strstr("", dest21));
     printf("\n%s%s", "String 2 has 0 length ", strstr(src21, ""));
     printf("\n\n%s\n", "CUSTOM strstr output");
     char src34[] = "1234567890";
     char dest34[] = "34567";
-    printf("%s%s", "Original string is ", src34);
-    printf("%s%s", "We find string ", dest34);
-    printf("%s%s", "String is found ", ft_strstr(src34, dest34));
-    printf("%s%s", "String not found ", ft_strstr(src34, "dfgd"));
-    printf("%s%s", "String not found ", ft_strstr("", dest34));
+    printf("%s%s\n", "Original string is ", src34);
+    printf("%s%s\n", "We find string ", dest34);
+    printf("%s%s\n", "String is found ", ft_strstr(src34, dest34));
+    printf("%s%s\n", "String not found ", ft_strstr(src34, "dfgd"));
+    printf("%s%s\n", "String not found ", ft_strstr("", dest34));
     printf("\n%s%s\n\n", "String 2 has 0 length ", ft_strstr(src34, ""));
 
     printf("%s", "STRNSTR FUNCTION\nORIGINAL strnstr output\n");
@@ -531,7 +497,7 @@ int main(void)
     printf("%s%d\n", "If first string has less byte result is ", ft_strncmp("", "hello456", 2));
     printf("%s%d\n\n", "If first string has less byte result is ", ft_strncmp("aello123", "", 2));
 
-	printf("%s", "ATOI FUNCTION\nORIGINAL ATOI output\n");
+	printf("\n%s", "ATOI FUNCTION\nORIGINAL ATOI output\n");
     printf("%s%d\n", "If string with literals result is ", atoi("dfdf5"));
     printf("%s%d\n", "If string with gaps rewult is ", atoi("   456"));
     printf("%s%d\n", "If string with + and gaps result is ", atoi("+   456df  "));
@@ -548,7 +514,7 @@ int main(void)
     printf("%s%d\n", "If string with more then extreme positive int result is ", atoi("+21474836471686"));
     printf("%s%d\n", "If string with less then extreme negative long long result is ", atoi("-99999999999999999999999999"));
     printf("%s%d\n", "If string with more then extreme positive long long result is ", atoi("99999999999999999999999999"));
-    printf("\n\n%s\n", "CUSTOM ATOI output");
+    printf("\n%s\n", "CUSTOM ATOI output");
     printf("%s%d\n", "If string with literals result is ", ft_atoi("dfdf5"));
     printf("%s%d\n", "If string with gaps rewult is ", ft_atoi("   456"));
     printf("%s%d\n", "If string with + and gaps result is ", ft_atoi("+   456df  "));
@@ -564,11 +530,11 @@ int main(void)
     printf("%s%d\n", "If string with less then extreme negative int result is ", ft_atoi("-21474836481686"));
     printf("%s%d\n", "If string with more then extreme positive int result is ", ft_atoi("+21474836471234"));
     printf("%s%d\n", "If string with less then extreme negative long long result is ", ft_atoi("-99999999999999999999999999"));
-    printf("%s%d\n", "If string with more then extreme positive long long result is ", ft_atoi("99999999999999999999999999"));
+    printf("%s%d\n\n", "If string with more then extreme positive long long result is ", ft_atoi("99999999999999999999999999"));
 
-    printf("%s", "ISALPHA FUNCTION\n\nORIGINAL ISALPHA output\n");
+    printf("\n%s", "ISALPHA FUNCTION\n\nORIGINAL ISALPHA output\n");
     printf("%s%d\n", "Is alpha a ", isalpha('a'));
-    printf("%s%d\n", "Is alpha k ", isalpha('k'));fatoi
+    printf("%s%d\n", "Is alpha k ", isalpha('k'));
     printf("%s%d\n", "Is alpha z ", isalpha('z'));
     printf("%s%d\n", "Is alpha A ", isalpha('A'));
     printf("%s%d\n", "Is alpha K ", isalpha('K'));
@@ -663,14 +629,17 @@ int main(void)
     printf("%s\n", "Call ft_striteri with Hello string and putchar function: ");
     ft_striteri("Hello", &test_striteri);
 
-    printf("%s", "\n\nFT_MEMALLOC ouput\n");       
-    printf("%s%d", "The memory allocated is initialized to 0: ", (int)ft_memalloc(3));
-    printf("%s%d", "The memory allocated is initialized to 0: ", (int)ft_memalloc(0));
+    printf("%s", "\n\nFT_MEMALLOC ouput\n");
+    printf("%s%d\n", "The memory allocated is initialized to 0: ", (int)ft_memalloc(3));
+    printf("%s%d\n", "The memory allocated is initialized to 0: ", (int)ft_memalloc(0));*/
 
     printf("%s", "\n\nFT_STRNEW ouput\n");
     printf("%s%d", "The string allocated and initialized to 0: ", (int)ft_strnew(3));
-
-    printf("%s", "FT_STRCLR ouput\n");
+    if (ft_strnew(0) == NULL)
+        ft_putstr("char     *ft_strnew   -> test2:   OK\n");
+    else
+        ft_putstr("char     *ft_strnew   -> test2:     KO\n");
+    /*printf("%s", "FT_STRCLR ouput\n");
     char *src29 = "Hello";
     printf("%s%s\n", "Original string is ", src29);
     ft_strclr(src29);
@@ -704,40 +673,61 @@ int main(void)
     printf("\n%s\n", "Output of -2147483648 is ");
     ft_putnbr(-2147483648);
 
-    printf("%s", "\nFT_STREQU FUNCTION\n");
+    printf("\n\n%s", "FT_STREQU FUNCTION\n");
     printf("%s%d\n", "If the same empty strings result is ", ft_strequ("", ""));
     printf("%s%d\n", "If the same empty strings result is ", ft_strequ("hello", "hello"));
     printf("%s%d\n", "Different length ", ft_strequ("h", "h "));
     printf("%s%d\n\n", "Different symbols ", ft_strequ("hello", "hellc"));
-    
+
     printf("%s", "FT_STRNEQU FUNCTION\n");
     printf("%s%d\n", "If the same empty strings result is ", ft_strnequ("", "", 2));
     printf("%s%d\n", "If the same strings result is ", ft_strnequ("hello", "hello", 3));
     printf("%s%d\n", "Different length ", ft_strnequ("h", "h ", 3));
     printf("%s%d\n\n", "Different symbols ", ft_strnequ("hello", "hellc", 6));
+    char strnequ14[] = "";
+    char strnequ24[] = "test";
+    char strnequ15[] = "";
+    char strnequ25[] = "test";
+    if (ft_strnequ(strnequ14, strnequ24, 4) == 0 && strncmp(strnequ14, strnequ24, 4) != 0)
+        ft_putstr("char     *ft_strnequ  -> test4:   OK\n");
+    else
+        ft_putstr("char     *ft_strnequ  -> test4:     KO\n");
+    if (ft_strnequ(strnequ15, strnequ25, 3) == 0 && strncmp(strnequ15, strnequ25, 3) != 0)
+        ft_putstr("char     *ft_strnequ  -> test5:   OK\n");
+    else
+        ft_putstr("char     *ft_strnequ  -> test5:     KO\n");*/
 
-    printf("%s", "\n\nFT_STRSUB FUNCTION\n");
-    char const *src32 = "someHellosome";
-    printf("%s%s\n", "Original string is ", src32);
-    printf("%s%s\n", "Substring from index 4 and 5 symbols is: ", ft_strsub(src32, 4, 5));
-    printf("%s%s\n", "Substring from index 4 and 5 symbols is: ", ft_strsub(src32, 10, 5));
-    printf("%s%s\n", "Substring from index 4 and 5 symbols is: ", ft_strsub(src32, 4, 10));
-    printf("%s%s\n", "Substring from index 4 and 5 symbols is: ", ft_strsub(src32, 4, 0));*/
+    printf("%s", "FT_STRSUB FUNCTION\n");
+    char const *src51 = "someHellosome";
+    printf("%s%s\n", "Original string is ", src51);
+    printf("%s%s\n", "Substring from index 4 and 5 symbols is: ", ft_strsub(src51, 4, 5));
+    printf("%s%s\n", "Substring from index 10 and 5 symbols is: ", ft_strsub(src51, 10, 5));
+    printf("%s%s\n", "Substring from index 4 and 10 symbols is: ", ft_strsub(src51, 4, 10));
+    printf("%s%s\n", "Substring from index 4 and 0 symbols is: ", ft_strsub(src51, 4, 0));
+    char strsub13[] = "z\0";
+    if (ft_strsub(strsub13, 1, 220) == 0)
+        ft_putstr("char     *ft_strsub   -> test4:   OK\n");
+    else
+        ft_putstr("char     *ft_strsub   -> test4:     KO\n");
 
-    printf("%s", "\n\nFT_STRJOIN FUNCTION\n");
-    char const *src33 = "Hello, ";
-    char const *src34 = "World!";
-    printf("%s%s\n", "Should be Hello, World! string: ", ft_strjoin(src33, src34));
-    printf("%s%s\n", "Should be Hello, World! string: ", ft_strjoin("", src34));
-    printf("%s%s\n", "Should be Hello, World! string: ", ft_strjoin(src33, ""));
-    
-    /*printf("%s", "\n\nFT_STRTRIM FUNCTION\n");
-    char const *src35 = "Hello";
-    char const *src36 = " \n\tHello\t\t \n     ";
-    printf("%s%s\n", "Result of Hello string without whitespaces: ", ft_strtrim(src35));
-    printf("%s%s\n", "Result of Hello string with whitespaces at the start and and: ", ft_strtrim(src36));
-    //printf("%s%d\n", "Result of Hello string with whitespaces at the start and and: ", (int)ft_strtrim(NULL));
-    printf("%s%d\n", "Result of Hello string with whitespaces at the start and and: ", (int)*ft_strtrim(""));
+    printf("%s", "\nFT_STRJOIN FUNCTION\n");
+    char const *src52 = "Hello, ";
+    char const *src53 = "World!";
+    printf("%s%s\n", "Should be Hello, World! string: ", ft_strjoin(src52, src53));
+    printf("%s%s\n", "Should be Hello, World! string: ", ft_strjoin("", src53));
+    printf("%s%s\n", "Should be Hello, World! string: ", ft_strjoin(src52, ""));
+    printf("%s%s\n", "Should be Hello, World! string: ", ft_strjoin("\0", "\0"));
+    if (ft_strjoin("\0", "\0") == 0)
+        ft_putstr("char     *ft_strjoin  -> test2:   OK\n");
+    else
+        ft_putstr("char     *ft_strjoin  -> test2:     KO\n");
+
+    /*printf("%s", "\nFT_STRTRIM FUNCTION\n");
+    char const *src54 = "Hello";
+    char const *src55 = " \n\tHello\t\t \n     ";
+    printf("%s%s\n", "Result of Hello string without whitespaces: ", ft_strtrim(src54));
+    printf("%s%s\n", "Result of Hello string with whitespaces at the start and and: ", ft_strtrim(src55));
+    printf("%s%d\n\n", "Result of Hello string with whitespaces at the start and and: ", (int)*ft_strtrim(""));
 
    	printf("%s", "\n\nFT_MEMDEL FUNCTION\n");
     char *src37;
@@ -745,17 +735,17 @@ int main(void)
     src37 = "Hello";
     printf("%s%s", "Original string is ", src37);
     ft_memdel((void **)&src37);
-    printf("%s%s", "String after free calling is ", src37);
+    printf("%s%s", "String after free calling is ", src37);*/
 
-    printf("%s", "\n\nFT_STRDEL FUNCTION\n");
+    /*printf("%s", "\n\nFT_STRDEL FUNCTION\n");
     char *src38;
     src38 = malloc(sizeof(char) * 10);
     src38 = "Hello";
     printf("%s%s", "Original string is ", src38);
     ft_strdel(&src38);
-    printf("%s%d", "String after free calling is ", (int)src38);
+    printf("%s%d", "String after free calling is ", (int)src38);*/
 
-    printf("%s", "\n\nFT_STRSPLIT FUNCTION\n");
+    printf("%s", "FT_STRSPLIT FUNCTION\n");
     int i_spl = 0;
     char const *src39 = "*hello*fellow***students*";
     printf("%s%s\n", "Original string is: ", src39);
@@ -788,9 +778,44 @@ int main(void)
         i++;
     printf("%d", i);
 
+    char **newstrsplit;
+    newstrsplit = ft_strsplit("***", '\0');
+    if ((strcmp(newstrsplit[0], "***") == 0) && (newstrsplit[1] == NULL))
+        ft_putstr("char     *t_strsplit  -> test1:   OK\n");
+    else
+        ft_putstr("char     *t_strsplit  -> test1:     KO\n");
+    char **newstrsplit1;
+    newstrsplit1 = ft_strsplit("***", '*');
+    if (newstrsplit1[0] == NULL)
+        ft_putstr("char     *t_strsplit  -> test2:   OK\n");
+    else
+        ft_putstr("char     *t_strsplit  -> test2:     KO\n");
+    char **newstrsplit2;
+    newstrsplit2 = ft_strsplit("*1*2*", '*');
+    if ((strcmp(newstrsplit2[0], "1") == 0) && (strcmp(newstrsplit2[1], "2") == 0) && (newstrsplit2[2] == NULL))
+        ft_putstr("char     *t_strsplit  -> test3:   OK\n");
+    else
+        ft_putstr("char     *t_strsplit  -> test3:     KO\n");
+    char **newstrsplit3;
+    newstrsplit3 = ft_strsplit("1*****2", '*');
+    if ((strcmp(newstrsplit3[0], "1") == 0) && (strcmp(newstrsplit3[1], "2") == 0) && (newstrsplit3[2] == NULL))
+        ft_putstr("char     *t_strsplit  -> test3:   OK\n");
+    else
+        ft_putstr("char     *t_strsplit  -> test3:     KO\n");
+    char **newstrsplit4;
+    newstrsplit4 = ft_strsplit("1*****2", '\0');
+    if ((strcmp(newstrsplit4[0], "1*****2") == 0) && (newstrsplit4[1] == NULL))
+        ft_putstr("char     *t_strsplit  -> test4:   OK\n");
+    else
+        ft_putstr("char     *t_strsplit  -> test4:     KO\n");
+    char **newstrsplit5;
+    newstrsplit5 = ft_strsplit("1*****2", ' ');
+    if ((strcmp(newstrsplit5[0], "1*****2") == 0) && (newstrsplit5[1] == NULL))
+        ft_putstr("char     *t_strsplit  -> test5:   OK\n");
+    else
+        ft_putstr("char     *t_strsplit  -> test5:     KO\n");
 
-    
-    printf("%s", "\n\nFT_ITOA FUNCTION\n");
+    /*printf("%s", "\n\nFT_ITOA FUNCTION\n");
     printf("%s%d\n", "Original number is ", 0);
     printf("%s%s\n", "Result of itoa is ", ft_itoa(0));
     printf("%s%d\n", "Original number is ", 5);
@@ -808,7 +833,7 @@ int main(void)
     printf("%s%d\n", "Original number is ", 2147483647);
     printf("%s%s\n", "Result of itoa is ", ft_itoa(2147483647));
     printf("%s%ld\n", "Original number is ", -2147483648);
-    printf("%s%s\n", "Result of itoa is ", ft_itoa(-2147483648));
+    printf("%s%s\n", "Result of itoa is ", ft_itoa(-2147483648));*/
 
     printf("%s", "\n\nBONUS PART\n");
 
@@ -822,14 +847,40 @@ int main(void)
         printf("%s\n\n", (char *)tmp1->next);
         tmp1 = tmp1->next;
     }
-    
-    printf("%s", "\nFT_LSTADD FUNCTION\n");
+
+    t_list *list;
+    t_list *nullist;
+
+    nullist = NULL;
+
+
+    print_test_name("01. ft_lstnew");
+    {
+        int a;
+
+        a = 43;
+        list = ft_lstnew(NULL, 25);
+        if (!list || list->content || list->content_size != 0)
+        {
+            printf("Test fail while trying to create list component with NULL\n");
+        }
+        list = ft_lstnew(&a, sizeof(a));
+        a = 0;
+        if (!list || memcmp(list->content, &a, sizeof(a)) != 0 || list->content_size != sizeof(a))
+        {
+            printf("Test fail while trying to create list component with %d\n", a);
+            printf("%d\n", (int)(list->content));
+        }
+    }
+
+    /*printf("%s", "\nFT_LSTADD FUNCTION\n");
     t_list *tmp2;
     tmp2 = NULL;
     tmp2 = test_lstnew(tmp2, "Hello", 10);
     tmp2 = test_lstnew(tmp2, "my", 8);
     tmp2 = test_lstnew(tmp2, "world", 7);
     t_list *tmp3;
+    tmp3 = NULL;
     tmp3 = test_lstnew(tmp3, "test", 7);
     ft_lstadd(&tmp2, tmp3);
     while (tmp3)
@@ -854,16 +905,14 @@ int main(void)
     }
 
     printf("%s", "\nFT_LSTDELONE FUNCTION\n");
-    t_list *tmp5;
-    tmp5 = test_lstnew(tmp5, "Hello", 10);
-    printf("%s\n", (char *)tmp5->content);
-    printf("%d\n", (int)tmp5->content_size);
-    printf("%s\n\n", (char *)tmp5->next);
-    ft_lstdelone(&tmp5, del);
-    //printf("%d\n", (int)tmp5);
+    t_list *tmp7;
+    tmp7 = test_lstnew(tmp7, "Hello", 10);
+    printf("%s\n", (char *)tmp7->content);
+    printf("%d\n", (int)tmp7->content_size);
+    printf("%s\n\n", (char *)tmp7->next);
+    ft_lstdelone(&tmp7, del);*/
 
-
-    printf("%s", "\nFT_LSTMAP FUNCTION\n");
+    /*printf("%s", "\nFT_LSTMAP FUNCTION\n");
     t_list *tmp7;
     tmp7 = ft_lstmap(tmp3, &test_lstmap);
     while (tmp7)
@@ -872,6 +921,5 @@ int main(void)
         printf("%d\n", (int)tmp7->content_size);
         printf("%s\n\n", (char *)tmp7->next);
         tmp7 = tmp7->next;
-    }
-*/
+    }*/
 }

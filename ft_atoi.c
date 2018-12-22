@@ -12,8 +12,8 @@
 
 static int	main_atoi(const char *str, int i, int sign)
 {
-	long long	tmp;
-	long long	res;
+	long long tmp;
+	long long res;
 
 	res = 0;
 	while (str[i] >= '0' && str[i] <= '9')
